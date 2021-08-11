@@ -1,0 +1,36 @@
+body {
+    --ada-dark: #0f355e;
+    --ada-teal: #0ba3c2;
+    --ada-pink: #e61760;
+    /* --ada-pink: #ff1b43; */
+    /* --ada-pink: #ff012e; */
+    --main-background: #f0f0f0;
+    --main-hover: #d4d4d4;
+    color: var(--ada-dark);
+    background-color: var(--main-background);
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+#bannerimage {
+    width: 100%;
+    background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/Free-polygon-backgrounds.jpg);
+    /* background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/429eb428828761.55d467b770f02.jpg); */
+    height: 105px;
+    background-color: var(--ada-pink);
+    background-position: center;
+}
+
+#username {
+    font-size: 25px;
+    font-weight: 800;
+    padding: 25px;
+    /* margin-left: auto; */
+}

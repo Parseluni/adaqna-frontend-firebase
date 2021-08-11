@@ -1,0 +1,36 @@
+.questionBox {
+    padding: 10px;
+    border-top: 10px solid var(--main-background);
+    /* border-bottom: 10px solid var(--main-background); */
+    background-color: white;
+    position: sticky;   
+}
+
+.questionBox > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionBox__input {
+    padding: 20px;
+    display: flex;
+}
+
+.questionBox__input > input {
+    /* flex: 1; */
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+}
+
+.questionBox__button {
+    background-color: var(--ada-pink) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    border-radius: 30px !important;
+    width: 70px;
+    height: 40px !important;
+    margin-left: auto !important;
+}

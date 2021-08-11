@@ -1,38 +1,50 @@
-import React from "react";
+import React, { useContext }  from "react";
 import "./Header.css";
 import { Button } from "@material-ui/core";
+import { Link, useHistory } from "react-router-dom";
+import UserContext from './UserContext';
 
-// THIS COMPONENT IS NOT BEING USED RIGHT NOW !!!
 
 function Header() {
 
-    const { user } = useContext(UserContext);
+    const { user, logout } = useContext(UserContext);
+
+    // const history = useHistory();
+
+    // const routeChange = () =>{ 
+    //   let path = "/login"; 
+    //   history.push(path);
+    // }
 
     return(
-        <div className="header">
+        <div>
+            <div className="header">
 
-            {/* Logo */}
-            <div className="header__logo">
-                <h1>Q&Ada</h1>
+                <div className="header__logo">
+                    <img width="200" src="/logo.png" alt="Logo" />
+                </div>
+
+                {user.auth ?
+                <div>
+                    <Button variant="outlined" className="header__buttons" fullWidth onClick={logout}>Log out</Button>
+                    <div id="username">Hi {user.username}!</div>
+                </div> 
+                : 
+                <div>
+                    {/* <Button variant="outlined" className="header__buttons" fullWidth onClick={routeChange}>Log in button</Button> */}
+
+                    <Link to ="/login">
+                        <Button variant="outlined" className="header__buttons" fullWidth >Log in</Button>
+                    </Link>
+                    <Link to ="/signup">
+                        <Button variant="outlined" className="header__buttons" fullWidth >Sign up</Button>
+                    </Link>
+                </div>
+                }                
             </div>
 
-            {/* Login */}
+            <div id="bannerimage"></div>
 
-            {user.auth ? 
-            <Button variant="outlined" className="header__buttons" fullWidth >Log out</Button>
-            : 
-            <div>
-                <Button variant="outlined" className="header__buttons" fullWidth >Log in</Button>
-                <Button variant="outlined" className="header__buttons" fullWidth >Sign up</Button>
-            </div>
-            }
-
-            {/* <Button variant="outlined" className="header__buttons" fullWidth >Log in</Button> */}
-
-
-
-
-            
         </div>
     )
 }

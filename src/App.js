@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
+import "./App.css";
+import UserContext from "./UserContext";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LoginForm from "./LoginForm";
+import HomePage from "./HomePage";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Feed from "./Feed";
 import Topic from "./Topics";
-import "./App.css";
-import UserContext from './UserContext';
 import AuthApp from './AuthApp';
 import UnauthApp from './UnauthApp';
-import Login from './Login';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import QuestionBox from "./QuestionBox";
+import { Button } from "@material-ui/core";
+
 
 
 function App() {
@@ -16,41 +20,29 @@ function App() {
   const { user } = useContext(UserContext);
 
   return ( 
-    <div>
 
-      {/* Logo, Login and Welcome Banner */}
-      {/* <Header /> */}
+    <Router>
 
-      <Router>
+{/* 
+        <Link to ="/login">
+          <Button variant="outlined" className="header__buttons" fullWidth >Log in trial</Button>
+        </Link> */}
+
         <Switch>
 
           <Route path="/login">
-            {user.auth ? <AuthApp /> : <Login />}
-            {/* <Login /> */}
+            {/* {user.auth ? <AuthApp /> : <Login />} */}
+            <LoginForm />
           </Route>
 
           <Route path="/">
-            {user.auth ? <AuthApp /> : <UnauthApp />}
+            {/* {user.auth ? <AuthApp /> : <UnauthApp />} */}
+            <HomePage />
+
           </Route>
-
         </Switch>
-      </Router>
+    </Router>
 
-      {/* <div id="bannerimage"></div> */}
-
-      {/* <div className="app"> */}
-
-        {/* Sidebar with choices */}
-        {/* <Sidebar /> */}
-
-        {/* Feed with questions*/}
-        {/* <Feed /> */}
-
-        {/* Topics list*/}
-        {/* <Topic /> */}
-      {/* </div> */}
-
-    </div>
   );
 }
 

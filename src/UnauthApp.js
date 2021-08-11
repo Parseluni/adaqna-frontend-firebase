@@ -30,10 +30,11 @@ function UnauthApp() {
                 {/* <Login /> */}
 
                 {/* Toggle form visibility with button */}
+                
                 <Link to ="/login">
                     <Button variant="outlined" className="header__buttons" fullWidth >Log in</Button>
                 </Link>
-                <Link to ="/login">
+                <Link to ="/signup">
                     <Button variant="outlined" className="header__buttons" fullWidth >Sign up</Button>
                 </Link>
 

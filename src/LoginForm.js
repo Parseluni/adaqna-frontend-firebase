@@ -5,7 +5,7 @@ import { auth } from "./firebase";
 import { Event } from "@material-ui/icons";
 import UserContext from "./UserContext";
 
-function Login() {
+function LoginForm() {
 
     const { login } = useContext(UserContext);
     // const [username, setUsername] = useState();
@@ -45,7 +45,6 @@ function Login() {
         <div className="login">
 
             <Link to ='/'>
-                {/* LOGO IMAGE HERE */}
                 <div id="login__logo">
                     <img height="300" src="/logo.png" alt="Logo" />
                 </div>
@@ -71,4 +70,4 @@ function Login() {
         </div>
     )
 }
-export default Login;
+export default LoginForm;

@@ -7,7 +7,7 @@ import UserContext from "./UserContext";
 
 function QuestionBox() {
     const [questionText, setQuestionText] = useState("");
-    const { username } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         db.collection("questionText").onSnapshot(snapshot => (
@@ -17,11 +17,12 @@ function QuestionBox() {
 
     const sendQuestion = event => {
         event.preventDefault();
+        console.log(event)
         // user context data population, query data.user
         try {
             db.collection("questions").add({
                 // avatar: {Avatar}, 
-                username: username,
+                username: user.username,
                 text: questionText,
                 timestamp: Date.now(),  
                 votes: 7,

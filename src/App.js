@@ -38,12 +38,6 @@ function App() {
   return ( 
 
     <Router>
-
-{/* 
-        <Link to ="/login">
-          <Button variant="outlined" className="header__buttons" fullWidth >Log in trial</Button>
-        </Link> */}
-
         <Switch>
 
           <Route path="/login">

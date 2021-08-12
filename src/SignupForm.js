@@ -23,10 +23,11 @@ function SignupForm() {
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
                 if (auth) {
+                    console.log(auth.user)
                     // auth.user.email
                     // find the db collection of users, then the doc to reference the email you already have, then set the data you want to set (username)
-                    db.collection("users").doc(auth.user.email).set({username: username})
-                    login(auth.user.email)
+                    db.collection("users").doc(auth.user.uid).set({username: username, created_at: Date.now()})
+                    login(auth.user.uid)
                     history.push('/')
                 }
             })

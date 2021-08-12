@@ -20,7 +20,7 @@ function LoginForm() {
         auth
             .signInWithEmailAndPassword(email, password)
             .then((auth) => {
-                login(auth.user.email)
+                login(auth.user.uid)
                 history.push('/')
             })
             .catch(error => alert(error.message))

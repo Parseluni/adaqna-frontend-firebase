@@ -17,11 +17,11 @@ import reducer, { initialState } from "./reducer";
 // );
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <UserProvider>
       <App />
-    </UserProvider>
-  </React.StrictMode>,
+    </UserProvider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

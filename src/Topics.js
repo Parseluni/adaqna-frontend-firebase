@@ -1,8 +1,16 @@
 import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
+import TopicFilter from "./TopicFilter";
 import "./Topics.css";
 
 function Topics() {
+
+    // const renderList = [];
+
+    // for (const topic in topics) {
+    //     renderList.push(< TopicFilter id={topic.id} displayLabel={topic.name} />)
+    // }
+
     return(
         <div>
             {/* Header */}
@@ -13,6 +21,7 @@ function Topics() {
 
                 {/* Topics */}
                 <div className="topics__choices">
+                    {/* {renderList} */}
                     <h3>Essays</h3>
                     <h3>Code Challenge</h3>
                     <h3>Technical Interview</h3>

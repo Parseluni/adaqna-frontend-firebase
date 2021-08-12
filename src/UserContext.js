@@ -16,18 +16,19 @@ const UserContext = createContext();
 // export const useStateValue = () => useContext(UserContext);
 
 
-
 // function UserProvider to provide our initiated context
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({ username: '', auth: false });
   
     // Login updates the user data with a username parameter
-    const login = (email) => {
+    const login = (uid) => {
+      console.log(uid)
       db
         .collection("users")
-        .doc(email)
+        .doc(uid)
         .get()
         .then((userRef) => {
+          console.log(userRef)
           setUser((user) => ({
             username: userRef.data().username,
             auth: true,
@@ -49,6 +50,5 @@ export const UserProvider = ({ children }) => {
       </UserContext.Provider>
     );
   }
-
 
   export default UserContext;

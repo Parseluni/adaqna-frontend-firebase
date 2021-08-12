@@ -1,7 +1,17 @@
 body {
     --ada-dark: #0f355e;
     --ada-teal: #0ba3c2;
-    --ada-pink: #e61760;
+    /* --ada-pink: #e61760; */
+    /* --ada-pink: #fa1d7d; */
+    --ada-pink: #fc1378;
+
+    /* --ada-pink: #b72f91; */
+    /* --ada-pink: #b53290; */
+    /* --ada-pink: #ca449f; */
+    /* --ada-pink: #b73799; */
+    /* --ada-pink: #e344a3; */
+    /* --ada-pink: #9f2f83; */
+
     /* --ada-pink: #ff1b43; */
     /* --ada-pink: #ff012e; */
     --main-background: #f0f0f0;

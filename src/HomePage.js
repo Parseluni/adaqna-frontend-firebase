@@ -4,7 +4,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Feed from "./Feed";
 import Topic from "./Topics";
-import UserContext from './UserContext';
+import UserContext from "./UserContext";
 import QuestionBox from "./QuestionBox";
 
 

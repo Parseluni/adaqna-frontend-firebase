@@ -3,14 +3,25 @@ import "./Header.css";
 import { Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import UserContext from './UserContext';
+import { useStateValue } from "./UserContext";
+import { auth } from "./firebase";
 
 
 function Header() {
 
     const { user, logout } = useContext(UserContext);
 
-    // const history = useHistory();
 
+    // const [{ user }, dispatch] = useStateValue;
+
+    // const handleAuth = () => {
+    //     if (user) {
+    //         auth.signOut();
+    //     }
+    // }
+
+
+    // const history = useHistory();
     // const routeChange = () =>{ 
     //   let path = "/login"; 
     //   history.push(path);
@@ -25,7 +36,7 @@ function Header() {
                 </div>
 
                 {user.auth ?
-                <div>
+                <div className="header__loggedIn">
                     <Button variant="outlined" className="header__buttons" fullWidth onClick={logout}>Log out</Button>
                     <div id="username">Hi {user.username}!</div>
                 </div> 

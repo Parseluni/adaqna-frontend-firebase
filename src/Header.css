@@ -40,8 +40,15 @@
     text-transform: inherit !important;
     border-radius: 30px !important;
     height: 40px;
-    margin-top: 50px !important;
+    margin-top: 60px !important;
     margin-left: auto !important;
     width: 90px !important;
+}
+
+.header__loggedIn {
+    display: flex;
+}
+#username {
+    margin-top: 40px;
 }
 

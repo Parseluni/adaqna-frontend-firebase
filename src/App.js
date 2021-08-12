@@ -1,23 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.css";
 import UserContext from "./UserContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 import HomePage from "./HomePage";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import Feed from "./Feed";
-import Topic from "./Topics";
-import AuthApp from './AuthApp';
-import UnauthApp from './UnauthApp';
-import QuestionBox from "./QuestionBox";
-import { Button } from "@material-ui/core";
-
+import { auth } from "./firebase";
+import { useStateValue } from "./UserContext";
 
 
 function App() {
 
   const { user } = useContext(UserContext);
+
+
+  // const [{}, dispatch] = useStateValue();
+
+  // useEffect(() => {
+  //     auth.onAuthStateChanged(authUser => {
+  //       console.log("The user is >>> ", authUser);
+  //       if (authUser) {
+  //         // user just logged in, or already loggeg in 
+  //         dispatch({
+  //           type: "SET_USER",
+  //           user: authUser
+  //         })
+  //       } else {
+  //         // user logged out
+  //         dispatch({
+  //           type: "SET_USER",
+  //           user: null
+  //         })
+  //       }
+  //     })
+  // }, [])
 
   return ( 
 
@@ -35,11 +51,14 @@ function App() {
             <LoginForm />
           </Route>
 
-          <Route path="/">
-            {/* {user.auth ? <AuthApp /> : <UnauthApp />} */}
-            <HomePage />
-
+          <Route path="/signup">
+            <SignupForm />
           </Route>
+
+          <Route path="/">
+            <HomePage />
+          </Route>
+
         </Switch>
     </Router>
 

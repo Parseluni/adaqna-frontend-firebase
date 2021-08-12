@@ -33,14 +33,6 @@ function Feed() {
                     />
                 ))}
             </FlipMove>
-
-{/* 
-            <Question 
-                avatar={Avatar} 
-                username="Parseluni"
-                text="How long is each essay?"
-                timestamp="seconds ago" 
-                votes="6" /> */}
             
         </div>
     )

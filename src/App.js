@@ -13,7 +13,6 @@ function App() {
 
   const { user } = useContext(UserContext);
 
-
   // const [{}, dispatch] = useStateValue();
 
   // useEffect(() => {

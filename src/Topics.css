@@ -5,23 +5,10 @@
 }
 
 .topics__title {
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
-.topics__choices {
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-}
-
-.topics__choices:hover {
-    background-color: var(--main-hover);
-    border-radius: 30px;
-    color: var(--ada-pink);
-    transition: color 100ms ease-out;
-}
   
 .topics__input {
     display: flex;
@@ -29,7 +16,7 @@
     background-color: white;
     padding: 5px;
     border-radius: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .topics__input > input {

@@ -15,11 +15,21 @@ const UserContext = createContext();
 // // Pull information from the data layer
 // export const useStateValue = () => useContext(UserContext);
 
+const retrieveUserData = () => {
+    // get item form local storage
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+    return foundUser
+    } else {
+      return { username: '', auth: false }
+    }
+};
 
 // function UserProvider to provide our initiated context
 export const UserProvider = ({ children }) => {
-    const [user, setUser] = useState({ username: '', auth: false });
-  
+    const [user, setUser] = useState(retrieveUserData());
+
     // Login updates the user data with a username parameter
     const login = (uid) => {
       console.log(uid)
@@ -29,10 +39,14 @@ export const UserProvider = ({ children }) => {
         .get()
         .then((userRef) => {
           console.log(userRef)
-          setUser((user) => ({
+          const loggedInUserData = {
             username: userRef.data().username,
             auth: true,
-          }));
+          }
+          setUser((user) => (
+            loggedInUserData
+          ))
+          localStorage.setItem("user", JSON.stringify(loggedInUserData))
         });
     };
     
@@ -42,6 +56,7 @@ export const UserProvider = ({ children }) => {
         username: '',
         auth: false,
       }));
+      localStorage.removeItem("user")
     };
   
     return (

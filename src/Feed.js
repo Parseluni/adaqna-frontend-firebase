@@ -30,6 +30,7 @@ function Feed() {
                         text={question.text}
                         timestamp={question.timestamp}
                         votes={question.votes}
+                        // questionId={question.id}
                     />
                 ))}
             </FlipMove>

@@ -1,0 +1,39 @@
+.topicFilter {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.topicFilter:hover {
+    border-radius: 30px;
+    color: var(--ada-pink);
+    transition: color 100ms ease-out;
+}
+
+.topicFilter > .MuiSvgIcon-root {
+    padding: 20px;
+}
+
+.topicFilter > h2 {
+    font-weight: 800;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.topicFilter--active {
+    color: var(--ada-pink);
+}
+
+/* .topics__choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+} */
+
+/* .topics__choices:hover {
+    background-color: var(--main-hover);
+    border-radius: 30px;
+    color: var(--ada-pink);
+    transition: color 100ms ease-out;
+} */

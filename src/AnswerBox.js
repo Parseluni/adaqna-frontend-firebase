@@ -6,7 +6,7 @@ import UserContext from "./UserContext";
 import Answer from "./Answer";
 
 
-function AnswerBox() {
+function AnswerBox(props) {
     const [answerText, setAnswerText] = useState("");
     const { user } = useContext(UserContext);
 
@@ -20,16 +20,16 @@ function AnswerBox() {
         event.preventDefault();
         console.log(event)
         // check if answer has a value, if not, add error message
-        // check if input has a value, if not, add error message
         // user context data population, query data.user
         try {
             db.collection("answers").add({
                 // avatar: {Avatar}, 
-                // question: /questions/<firebase_question_id>
+                // how to fetch the question id from firebase?
+                question_id: props.question_id,
                 username: user.username,
                 text: answerText,
                 timestamp: Date.now(),  
-                votes: 7,
+                // votes: 7,
             });
         } catch (err) {
             console.log(err);

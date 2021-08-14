@@ -10,8 +10,9 @@ import UserContext from "./UserContext";
 import { SignalCellularNull } from "@material-ui/icons";
 
 const Question = forwardRef(
-  ({ avatar, username, text, timestamp, votes }, ref) => {
+  ({ avatar, username, text, timestamp, question_id, votes }, ref) => {
     const readableDate = new Date(timestamp).toDateString();
+    console.log(username);
 
     const { user } = useContext(UserContext);
     const [showTextBox, setShowTextBox] = useState(false);
@@ -77,7 +78,9 @@ const Question = forwardRef(
           {/* <MessageOutlinedIcon fontSize="small" />  */}
 
           {/* <AnswerBox questionId=<firebase_question_id> */}
-          {showTextBox && user.auth ? <AnswerBox /> : null}
+          {showTextBox && user.auth ? (
+            <AnswerBox question_id={question_id} />
+          ) : null}
 
           {answerLink()}
         </div>

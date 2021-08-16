@@ -11,6 +11,16 @@ function QuestionBox() {
   const [showDropDown, setShowDropDown] = useState(false);
   const [topicSelection, setTopicSelection] = useState(null);
 
+  
+//   WHY IS THIS NOT WORKING??
+//   const [errorMessage, setErrorMessage] = useState(false);
+
+//   const sendErrorMessage = event = => {
+//     event.preventDefault();
+//       setErrorMessage(true)
+//   }
+
+
   useEffect(() => {
     db.collection("questionText").onSnapshot((snapshot) =>
       setQuestionText(snapshot.docs.map((doc) => doc.data()))
@@ -24,8 +34,12 @@ function QuestionBox() {
   const sendQuestion = (event) => {
     event.preventDefault();
     console.log(event);
-    // check if question has a value, if not, add error message
-    // check if topic has a value, if not, add error message
+
+    // check if question and topic have a value, if not, add error message
+    // function InvalidMsg(textbox) {
+    // if (questionText === "") {
+    //     return (<h3>Please enter a question</h3>);
+    // }
     // user context data population, query data.user
     try {
       db.collection("questions").add({
@@ -55,13 +69,12 @@ function QuestionBox() {
             value={questionText}
             placeholder="What is your question?"
             type="text"
-            required="required"
           />
         </div>
         {showDropDown && (
           <div>
             Topic:
-            <select onChange={handleTopicSelection} value={topicSelection} required="required" >
+            <select onChange={handleTopicSelection} value={topicSelection}>
               <option value=""></option>
               <option value="Essays">Essays</option>
               <option value="Code Challenge">Code Challenge</option>
@@ -74,6 +87,25 @@ function QuestionBox() {
             </select>
           </div>
         )}
+
+        {/* WHY IS THIS NOT WORKING?? */}
+        {/* {questionText && topicSelection ? (
+          <Button
+            onClick={sendQuestion}
+            type="submit"
+            className="questionBox__button"
+          >
+            Ask
+          </Button>
+        ) : (
+          <Button
+            onClick={sendErrorMessage}
+            type="submit"
+            className="questionBox__button"
+          >
+            Ask
+          </Button>
+        )} */}
 
         <Button
           onClick={sendQuestion}

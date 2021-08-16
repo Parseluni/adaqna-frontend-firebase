@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./App.css";
+import "./HomePage.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Feed from "./Feed";

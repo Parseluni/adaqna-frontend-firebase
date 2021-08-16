@@ -1,7 +1,9 @@
 .questionBox {
     padding: 10px;
-    border-top: 10px solid var(--main-background);
-    /* border-bottom: 10px solid var(--main-background); */
+    margin-top: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;    
     background-color: white;
     position: sticky;   
 }

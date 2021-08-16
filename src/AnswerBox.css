@@ -1,7 +1,10 @@
 .answerBox {
     padding: 10px;
-    border-top: 10px solid var(--main-background);
-    /* border-bottom: 10px solid var(--main-background); */
+    margin-top: 10px solid lightgray;
+    border-top: 1px;
+    /* border-style: solid; */
+    /* border-width: 1px; */
+    /* border-color: lightgray;         */
     background-color: white;
     position: sticky;   
 }
@@ -14,6 +17,7 @@
 .answerBox__input {
     padding: 20px;
     display: flex;
+    border: none;
 }
 
 .answerBox__input > input {

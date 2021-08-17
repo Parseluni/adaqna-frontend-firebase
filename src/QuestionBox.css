@@ -23,6 +23,8 @@
     margin-left: 20px;
     font-size: 20px;
     border: none;
+    width: 100%;
+    flex: 1 1;
 }
 
 .questionBox__button {
@@ -35,4 +37,12 @@
     width: 70px;
     height: 40px !important;
     margin-left: auto !important;
+}
+
+.topic_dropdown {
+    margin-left: 10px;
+}
+
+.topic_text {
+    margin-left: 20px;
 }

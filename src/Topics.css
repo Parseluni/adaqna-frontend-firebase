@@ -1,14 +1,17 @@
 .topics {
-    flex: 0.20;
-    padding-left: 50px;
-    padding-right: 20px;
+    /* flex: 0.20; */
+    padding-left: 30px;
+    /* padding-right: 20px; */
+}
+
+.topics__container{
+    flex: 0.2;
 }
 
 .topics__title {
     margin-top: 25px;
     margin-bottom: 10px;
 }
-
   
 .topics__input {
     display: flex;
@@ -27,3 +30,5 @@
 .topics__searchIcon {
     color: gray;
 }
+
+

@@ -37,4 +37,5 @@
     width: 70px;
     height: 40px !important;
     margin-left: auto !important;
+    border-top: 1px solid var(--main-background);
 }

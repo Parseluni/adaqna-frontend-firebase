@@ -23,7 +23,7 @@ const Answer = forwardRef(
         </div>
 
         <div className="answer__text">
-          <h3>{text}</h3>
+          <h4>{text}</h4>
         </div>
         <div className="answer__footer">
           <ArrowUpwardOutlinedIcon fontSize="small" />

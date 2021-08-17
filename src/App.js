@@ -5,34 +5,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import HomePage from "./HomePage";
+import LinksPage from "./LinksPage";
 import { auth } from "./firebase";
 import { useStateValue } from "./UserContext";
 
 
 function App() {
-
-  const { user } = useContext(UserContext);
-
-  // const [{}, dispatch] = useStateValue();
-
-  // useEffect(() => {
-  //     auth.onAuthStateChanged(authUser => {
-  //       console.log("The user is >>> ", authUser);
-  //       if (authUser) {
-  //         // user just logged in, or already loggeg in 
-  //         dispatch({
-  //           type: "SET_USER",
-  //           user: authUser
-  //         })
-  //       } else {
-  //         // user logged out
-  //         dispatch({
-  //           type: "SET_USER",
-  //           user: null
-  //         })
-  //       }
-  //     })
-  // }, [])
 
   return ( 
 
@@ -46,6 +24,10 @@ function App() {
 
           <Route path="/signup">
             <SignupForm />
+          </Route>
+
+          <Route path="/links">
+            <LinksPage />
           </Route>
 
           <Route path="/">

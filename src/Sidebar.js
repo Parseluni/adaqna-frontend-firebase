@@ -15,9 +15,9 @@ function Sidebar() {
     return (
         <div className="sidebar">
 
-            <SidebarOption active Icon={HomeIcon} text="Home"/>
+            <SidebarOption active Icon={HomeIcon} text="Home" link={{pathname:"/", state:{currentFilter: null}}}/>
             <SidebarOption Icon={SettingsIcon} text="Settings"/>
-            <SidebarOption Icon={LinkOutlinedIcon} text="Links"/>
+            <SidebarOption Icon={LinkOutlinedIcon} text="Links" link="/links"/>
             {user.auth ? <SidebarOption Icon={PersonIcon} text="Profile"/> : ""}
 
         </div>

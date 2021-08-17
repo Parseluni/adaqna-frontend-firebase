@@ -3,23 +3,19 @@ import "./QuestionBox.css";
 import { Avatar, Button } from "@material-ui/core";
 import db from "./firebase";
 import UserContext from "./UserContext";
+import { FormatColorReset } from "@material-ui/icons";
 
 function QuestionBox() {
   const { user } = useContext(UserContext);
 
   const [questionText, setQuestionText] = useState("");
   const [showDropDown, setShowDropDown] = useState(false);
-  const [topicSelection, setTopicSelection] = useState(null);
+  const [topicSelection, setTopicSelection] = useState("");
+  const [validQuestion, setValidQuestion] = useState(false);
+  const [validTopic, setValidTopic] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  
-//   WHY IS THIS NOT WORKING??
-//   const [errorMessage, setErrorMessage] = useState(false);
-
-//   const sendErrorMessage = event = => {
-//     event.preventDefault();
-//       setErrorMessage(true)
-//   }
-
+// set error message
 
   useEffect(() => {
     db.collection("questionText").onSnapshot((snapshot) =>
@@ -29,6 +25,17 @@ function QuestionBox() {
 
   const handleTopicSelection = (event) => {
     setTopicSelection(event.target.value);
+    if (event.target.value !== "") {
+        setValidTopic(true)
+    } else {
+        setValidTopic(false)
+        setErrorMessage("Please choose a topic")
+    }
+  };
+
+  const handleQuestionInput = (event) => {
+    setQuestionText(event.target.value);
+    event.target.value !== "" ? setValidQuestion(true) : setValidQuestion(false);
   };
 
   const sendQuestion = (event) => {
@@ -40,6 +47,8 @@ function QuestionBox() {
     // if (questionText === "") {
     //     return (<h3>Please enter a question</h3>);
     // }
+
+    
     // user context data population, query data.user
     try {
       db.collection("questions").add({
@@ -56,6 +65,8 @@ function QuestionBox() {
     setQuestionText("");
     setTopicSelection(null);
     setShowDropDown(false);
+    setValidQuestion(false);
+    setValidTopic(false);
   };
 
   return (
@@ -64,7 +75,7 @@ function QuestionBox() {
         <div className="questionBox__input">
           <Avatar src="" />
           <input
-            onChange={(event) => setQuestionText(event.target.value)}
+            onChange={handleQuestionInput}
             onFocus={(event) => setShowDropDown(true)}
             value={questionText}
             placeholder="What is your question?"
@@ -72,9 +83,9 @@ function QuestionBox() {
           />
         </div>
         {showDropDown && (
-          <div>
+          <div className="topic_text">
             Topic:
-            <select onChange={handleTopicSelection} value={topicSelection}>
+            <select className="topic_dropdown" onChange={handleTopicSelection} value={topicSelection}>
               <option value=""></option>
               <option value="Essays">Essays</option>
               <option value="Code Challenge">Code Challenge</option>
@@ -107,16 +118,20 @@ function QuestionBox() {
           </Button>
         )} */}
 
-        <Button
+        {/* ADD && with the other valid Input */}
+        {((validQuestion === true) && (validTopic === true)) ? <Button
           onClick={sendQuestion}
           type="submit"
           className="questionBox__button"
         >
           Ask
-        </Button>
+        </Button>: <Button className="questionBox__button">Ask</Button>
+}
+
       </form>
     </div>
   );
 }
 
 export default QuestionBox;
+

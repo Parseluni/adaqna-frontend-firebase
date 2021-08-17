@@ -8,12 +8,19 @@ import Answer from "./Answer";
 function AnswerBox(props) {
   const [answerText, setAnswerText] = useState("");
   const { user } = useContext(UserContext);
+  const [validAnswer, setValidAnswer] = useState(false);
 
   useEffect(() => {
     db.collection("answerText").onSnapshot((snapshot) =>
       setAnswerText(snapshot.docs.map((doc) => doc.data()))
     );
   }, []);
+
+
+  const handleAnswerInput = (event) => {
+    setAnswerText(event.target.value);
+    answerText != null ? setValidAnswer(true) : setValidAnswer(false);
+  };
 
   const sendAnswer = (event) => {
     event.preventDefault();
@@ -27,7 +34,7 @@ function AnswerBox(props) {
         username: user.username,
         text: answerText,
         timestamp: Date.now(),
-        // votes: 7,
+        votes: 0,
       });
       db.collection("questions")
         .doc(props.question_id)
@@ -38,22 +45,7 @@ function AnswerBox(props) {
               username: user.username,
               text: answerText,
               timestamp: Date.now(),
-              // votes: 7,
-
-        // .then(() => {
-        //   console.log("Adding an answer");
-        //   db.collection("questions")
-        //     .doc(props.question_id)
-        //     .collection("answers")
-        //     .add({
-        //       // avatar: {Avatar},
-        //       // question_id: props.question_id,
-        //       username: user.username,
-        //       text: answerText,
-        //       timestamp: Date.now(),
-        //       // votes: 7,
-        //     });
-        // });
+              votes: 0,
     })
     } catch (err) {
       console.log(err);
@@ -68,20 +60,21 @@ function AnswerBox(props) {
         <div className="answerBox__input">
           <Avatar src="" />
           <input
-            onChange={(event) => setAnswerText(event.target.value)}
+            // onChange={(event) => setAnswerText(event.target.value)}
+            onChange={handleAnswerInput}
             value={answerText}
             placeholder="Answer"
             type="text"
           />
         </div>
 
-        <Button
+        {validAnswer === true ? <Button
           onClick={sendAnswer}
           type="submit"
           className="answerBox__button"
         >
           Answer
-        </Button>
+        </Button>: <Button className="answerBox__button">Answer</Button>}
       </form>
     </div>
   );

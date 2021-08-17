@@ -4,27 +4,27 @@ import TopicFilter from "./TopicFilter";
 import "./Topics.css";
 
 
-function Topics() {
+function Topics({handleTopicFilter}) {
 
     const renderList = [];
 
     const topics = [
-        { name: "Essays", id: "essays"},
-        { name: "Code Challenge", id: "codeChallenge"},
-        { name: "Technical Interview", id: "technicalInterview"},
-        { name: "Final Interview", id: "finalInterview"},
-        { name: "Application Timeline", id: "applicationTimeline"},
-        { name: "Internships", id: "internships"},
-        { name: "Career Prospects", id: "careerProspects"},
-        { name: "General", id: "general"}
+        { topic: "Essays", id: "essays"},
+        { topic: "Code Challenge", id: "codeChallenge"},
+        { topic: "Technical Interview", id: "technicalInterview"},
+        { topic: "Final Interview", id: "finalInterview"},
+        { topic: "Application Timeline", id: "applicationTimeline"},
+        { topic: "Internships", id: "internships"},
+        { topic: "Career Prospects", id: "careerProspects"},
+        { topic: "General", id: "general"}
     ]
 
     for (const topic of topics) {
-        renderList.push(<TopicFilter id={topic.id} text={topic.name} />)
+        renderList.push(<TopicFilter handleTopicFilter={handleTopicFilter} id={topic.id} text={topic.topic} />)
     }
 
     return(
-        <div>
+        <div className="topics__container">
             {/* Header */}
             <div className="topics">
                 <div className="topics__title">
@@ -34,18 +34,9 @@ function Topics() {
                 {/* Topics */}
                 <div className="topics__choices">
                     {renderList}
-
-                    {/* <TopicFilter text="Essays" />             
-                    <TopicFilter text="Code Challenge" /> 
-                    <TopicFilter text="Technical Interview" /> 
-                    <TopicFilter text="Final Interview" />            
-                    <TopicFilter text="Application Timeline" />             
-                    <TopicFilter text="Internships" />             
-                    <TopicFilter text="Career Prospects" />             
-                    <TopicFilter text="General" />              */}
                 </div>
 
-                {/* Search --> ONLY IF TIME!!! */}
+                {/* Search */}
                 <div className="topics__input">
                     <SearchIcon className="topics__searchIcon" />
                     <input placeholder="Search for keywords" type="text" />
@@ -59,16 +50,3 @@ function Topics() {
 export default Topics;
 
 
-
-
-
-{/* <div className="topics__choices">
-<h3>Essays</h3>               
-<h3>Code Challenge</h3>
-<h3>Technical Interview</h3>
-<h3>Final Interview</h3>
-<h3>Application Timeline</h3>
-<h3>Internships</h3>
-<h3>Career Prospects</h3>
-<h3>General</h3>
-</div> */}

@@ -5,14 +5,12 @@ import ArrowUpwardOutlinedIcon from "@material-ui/icons/ArrowUpwardOutlined";
 import ArrowDownwardOutlinedIcon from "@material-ui/icons/ArrowDownwardOutlined";
 import MessageOutlinedIcon from "@material-ui/icons/MessageOutlined";
 import AnswerBox from "./AnswerBox.js";
-import SidebarOption, { AnswerBoxOpener } from "./SidebarOption";
+import GlobalAnswerButton, { AnswerBoxOpener } from "./GlobalAnswerButton";
 import UserContext from "./UserContext";
 import { SignalCellularNull } from "@material-ui/icons";
 import Answer from "./Answer";
 import db from "./firebase";
 import { Link } from "react-router-dom";
-
-
 
 const Question = forwardRef(
   ({ avatar, username, text, timestamp, question_id, votes }, ref) => {
@@ -20,12 +18,18 @@ const Question = forwardRef(
 
     const { user } = useContext(UserContext);
     const [showTextBox, setShowTextBox] = useState(false);
-    // const [isLoggedIn, setShowTextBox] = useState(false);
     const [answers, setAnswers] = useState([]);
     const [showAnswers, setShowAnswers] = useState(false);
 
-    const answersNumber = answers.length;
-
+    const showAnswersNumber = (answersNumber) => {
+      if (answersNumber === 0) {
+        return "No answers yet";
+      } else if (answersNumber === 1) {
+        return "1 answer";
+      } else {
+        return `${answersNumber} answers`;
+      }
+    };
 
     const showAnswerBox = (event) => {
       event.preventDefault();
@@ -44,13 +48,19 @@ const Question = forwardRef(
       if (showTextBox) {
         return null;
       } else {
-        return <AnswerBoxOpener Icon={MessageOutlinedIcon} text="Answer" onClick={showAnswerBox} />;
+        return (
+          <AnswerBoxOpener
+            Icon={MessageOutlinedIcon}
+            text="Answer"
+            onClick={showAnswerBox}
+          />
+        );
       }
     };
 
     const answerBoxWhenLoggedOut = () => {
       return (
-        <SidebarOption
+        <GlobalAnswerButton
           Icon={MessageOutlinedIcon}
           link="/signup"
           text="Answer"
@@ -58,16 +68,20 @@ const Question = forwardRef(
       );
     };
 
-
     // if the button x answers has been clicked, useEffect to show all answers:
     useEffect(() => {
-      db.collection("questions").doc(question_id).collection("answers").onSnapshot((snapshot) =>
-        setAnswers(snapshot.docs.map((doc) => {
-          console.log(answers)
-          return {id:doc.id, ...doc.data()}
-        }))
-      );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      db.collection("questions")
+        .doc(question_id)
+        .collection("answers")
+        .onSnapshot((snapshot) =>
+          setAnswers(
+            snapshot.docs.map((doc) => {
+              console.log(answers);
+              return { id: doc.id, ...doc.data() };
+            })
+          )
+        );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // limiter of useEffect??? only do this when you see a change in variable
@@ -93,22 +107,29 @@ const Question = forwardRef(
           <h3>{text}</h3>
         </div>
 
-        {/* ON CLICK, show all the answers */}
-        <Link onClick={() => setShowAnswers(true)}>{answersNumber} Answers</Link>
+        {/* <Link onClick={() => setShowAnswers(true)} className="question__answersLink">{answersNumberLength} Answers</Link> */}
+        <Link
+          onClick={() => setShowAnswers(true)}
+          className="question__answersLink"
+        >
+          {showAnswersNumber(answers.length)}
+        </Link>
 
-        {/* {answers} */}
-
-        {showAnswers && answers.map((answer) => (
-          <Answer
-            key={answer.id} 
-            avatar={Avatar}
-            username={answer.username}
-            text={answer.text}
-            timestamp={answer.timestamp}
-            // votes={answer.votes}
-            answer_id={answer.id}
-          />
-        ))}
+        {showAnswers && (
+          <div>
+            {answers.map((answer) => (
+              <Answer
+                key={answer.id}
+                avatar={Avatar}
+                username={answer.username}
+                text={answer.text}
+                timestamp={answer.timestamp}
+                votes={answer.votes}
+                answer_id={answer.id}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="question__footer">
           {/* <ArrowUpwardOutlinedIcon fontSize="small" /> 
@@ -120,7 +141,10 @@ const Question = forwardRef(
 
           {/* <AnswerBox questionId=<firebase_question_id> */}
           {showTextBox && user.auth ? (
-            <AnswerBox question_id={question_id} setShowTextBox={setShowTextBox} />
+            <AnswerBox
+              question_id={question_id}
+              setShowTextBox={setShowTextBox}
+            />
           ) : null}
 
           {answerLink()}

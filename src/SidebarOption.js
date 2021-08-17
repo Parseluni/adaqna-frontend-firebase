@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 
 // Pass component as a prop (the icon itself)
 
-export function AnswerBoxOpener({text, onClick}) {
-    return (
-    <div onClick={onClick} className="sidebarOption">
-        <h2>{text}</h2>
-    </div>
-    )
-}
+// export function AnswerBoxOpener({text, onClick}) {
+//     return (
+//     <div onClick={onClick} className="sidebarOption">
+//         <h2>{text}</h2>
+//     </div>
+//     )
+// }
+
+// function refreshPage(){ 
+//     window.location.reload(); 
+// }
 
 function SidebarOption({active, text, link, Icon}) {
     return (

@@ -31,6 +31,52 @@ const Question = forwardRef(
       }
     };
 
+    const increaseVotes = (answer_id) => {
+      try {
+        db.collection("questions")
+          .doc(question_id)
+          .collection("answers")
+          .doc(answer_id)
+          .get()
+          .then((answer) => {
+            const data = answer.data()
+            const newVotes = data.votes + 1;
+            db.collection("questions")
+              .doc(question_id)
+              .collection("answers")
+              .doc(answer_id)
+              .update({
+                votes: newVotes,
+              });
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    const decreaseVotes = (answer_id) => {
+      try {
+        db.collection("questions")
+          .doc(question_id)
+          .collection("answers")
+          .doc(answer_id)
+          .get()
+          .then((answer) => {
+            const data = answer.data()
+            const newVotes = data.votes - 1;
+            db.collection("questions")
+              .doc(question_id)
+              .collection("answers")
+              .doc(answer_id)
+              .update({
+                votes: newVotes,
+              });
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     const showAnswerBox = (event) => {
       event.preventDefault();
       setShowTextBox(true);
@@ -126,6 +172,8 @@ const Question = forwardRef(
                 timestamp={answer.timestamp}
                 votes={answer.votes}
                 answer_id={answer.id}
+                increaseVotes = {() => increaseVotes(answer.id)}
+                decreaseVotes = {() => decreaseVotes(answer.id)}
               />
             ))}
           </div>

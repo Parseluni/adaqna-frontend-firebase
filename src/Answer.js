@@ -6,7 +6,7 @@ import ArrowDownwardOutlinedIcon from "@material-ui/icons/ArrowDownwardOutlined"
 import MessageOutlinedIcon from "@material-ui/icons/MessageOutlined";
 
 const Answer = forwardRef(
-  ({ avatar, username, text, timestamp, votes }, ref) => {
+  ({ avatar, username, text, timestamp, votes, increaseVotes, decreaseVotes }, ref) => {
     const readableDate = new Date(timestamp).toDateString();
 
     return (
@@ -26,9 +26,9 @@ const Answer = forwardRef(
           <h4>{text}</h4>
         </div>
         <div className="answer__footer">
-          <ArrowUpwardOutlinedIcon fontSize="small" />
+          <ArrowUpwardOutlinedIcon fontSize="small" onClick={increaseVotes} />
           <section className="votes">{votes}</section>
-          <ArrowDownwardOutlinedIcon fontSize="small" />
+          <ArrowDownwardOutlinedIcon fontSize="small" onClick={decreaseVotes} />
           {/* <MessageOutlinedIcon fontSize="small" /> */}
         </div>
       </div>

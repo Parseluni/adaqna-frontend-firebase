@@ -16,16 +16,17 @@ function Sidebar(props) {
         active
         Icon={HomeIcon}
         text="Home"
-        link={{ pathname: "/", state: { currentFilter: null } }}
+        link={{ pathname: "/", state: { currentFilter: null }}}
       />
-      <SidebarOption Icon={SettingsIcon} text="Settings" link="/settings" />
-      <SidebarOption Icon={LinkOutlinedIcon} text="Links" link="/links" />
+      <SidebarOption Icon={SettingsIcon} text="Settings" link={{pathname: "/settings"}} />
+      <SidebarOption Icon={LinkOutlinedIcon} text="Links" link={{pathname: "/links"}} />
       {user.auth ? (
         <SidebarOption
           Icon={PersonIcon}
           text="Profile"
-          link="/profile"
+          link={{pathname: "/profile"}}
           handleTopicFilter={props.handleTopicFilter}
+          currentFilter={props.currentFilter} 
         />
       ) : (
         ""

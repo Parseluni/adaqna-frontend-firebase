@@ -3,7 +3,6 @@ import "./QuestionBox.css";
 import { Avatar, Button } from "@material-ui/core";
 import db from "./firebase";
 import UserContext from "./UserContext";
-import { FormatColorReset } from "@material-ui/icons";
 
 function QuestionBox() {
   const { user } = useContext(UserContext);
@@ -15,8 +14,7 @@ function QuestionBox() {
   const [validTopic, setValidTopic] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-// set error message
-
+  
   useEffect(() => {
     db.collection("questionText").onSnapshot((snapshot) =>
       setQuestionText(snapshot.docs.map((doc) => doc.data()))
@@ -26,29 +24,30 @@ function QuestionBox() {
   const handleTopicSelection = (event) => {
     setTopicSelection(event.target.value);
     if (event.target.value !== "") {
-        setValidTopic(true)
+      setValidTopic(true);
+      setErrorMessage("");
     } else {
-        setValidTopic(false)
-        setErrorMessage("Please choose a topic")
+      setValidTopic(false);
+      // Why does this log show validTopic is set to true??? 
+      console.log(`validTopic is set to ${validTopic}`);
     }
   };
 
   const handleQuestionInput = (event) => {
     setQuestionText(event.target.value);
-    event.target.value !== "" ? setValidQuestion(true) : setValidQuestion(false);
+    event.target.value !== ""
+      ? setValidQuestion(true)
+      : setValidQuestion(false);
   };
+
+  const handleQuestionWithoutTopic = (event) => {
+    setErrorMessage("Please select a topic");
+  }
 
   const sendQuestion = (event) => {
     event.preventDefault();
     console.log(event);
 
-    // check if question and topic have a value, if not, add error message
-    // function InvalidMsg(textbox) {
-    // if (questionText === "") {
-    //     return (<h3>Please enter a question</h3>);
-    // }
-
-    
     // user context data population, query data.user
     try {
       db.collection("questions").add({
@@ -84,8 +83,16 @@ function QuestionBox() {
         </div>
         {showDropDown && (
           <div className="topic_text">
+            <div>
+              <p className="error_message">{errorMessage}</p>
+            </div>
+            <div>
             Topic:
-            <select className="topic_dropdown" onChange={handleTopicSelection} value={topicSelection}>
+            <select
+              className="topic_dropdown"
+              onChange={handleTopicSelection}
+              value={topicSelection}
+            >
               <option value=""></option>
               <option value="Essays">Essays</option>
               <option value="Code Challenge">Code Challenge</option>
@@ -96,37 +103,18 @@ function QuestionBox() {
               <option value="Career Prospects">Career Prospects</option>
               <option value="General">General</option>
             </select>
+            </div>
           </div>
         )}
 
-        {/* WHY IS THIS NOT WORKING?? */}
-        {/* {questionText && topicSelection ? (
-          <Button
-            onClick={sendQuestion}
-            type="submit"
-            className="questionBox__button"
-          >
-            Ask
-          </Button>
-        ) : (
-          <Button
-            onClick={sendErrorMessage}
-            type="submit"
-            className="questionBox__button"
-          >
-            Ask
-          </Button>
-        )} */}
-
-        {/* ADD && with the other valid Input */}
-        {((validQuestion === true) && (validTopic === true)) ? <Button
-          onClick={sendQuestion}
-          type="submit"
-          className="questionBox__button"
-        >
-          Ask
-        </Button>: <Button className="questionBox__button">Ask</Button>
-}
+        {(validQuestion === false) 
+          ? (<Button className="questionBox__button">Ask</Button>)
+          : (validTopic === true)
+            ? (<Button onClick={sendQuestion} type="submit" className="questionBox__button">
+                Ask
+              </Button>) 
+            : (<Button onClick={handleQuestionWithoutTopic} className="questionBox__button">Ask</Button>)
+            }
 
       </form>
     </div>
@@ -134,4 +122,3 @@ function QuestionBox() {
 }
 
 export default QuestionBox;
-

@@ -31,7 +31,7 @@ function HomePage() {
     <div>
       <Header />
       <div className="app">
-        <Sidebar handleTopicFilter={handleTopicFilter} />
+        <Sidebar handleTopicFilter={handleTopicFilter} currentFilter={currentFilter} />
 
         <div className="feed">
           {user.auth ? <QuestionBox /> : ""}

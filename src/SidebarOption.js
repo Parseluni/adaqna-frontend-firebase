@@ -1,6 +1,7 @@
 import React from "react";
 import "./SidebarOption.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { ControlCameraOutlined } from "@material-ui/icons";
 
 // Pass component as a prop (the icon itself)
 
@@ -17,6 +18,11 @@ import { Link } from "react-router-dom";
 // }
 
 function SidebarOption({active, text, link, Icon}) {
+    let location = useLocation();
+
+    active = location.pathname === link.pathname;
+    console.log(location.pathname, link.pathname, "WE ARE HERE!!!");
+
     return (
     <Link className={`sidebarOption ${active && 'sidebarOption--active'}`}
           to={link}>

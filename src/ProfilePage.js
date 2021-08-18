@@ -8,6 +8,8 @@ import Sidebar from "./Sidebar";
 import Topics from "./Topics";
 import db from "./firebase";
 
+// Refreshing the page does not rerender it
+
 function ProfilePage(props) {
   const { user } = useContext(UserContext);
   const [questions, setQuestions] = useState([]);
@@ -25,6 +27,15 @@ function ProfilePage(props) {
       );
   }, [user.username]);
 
+  let filteredQuestions = questions;
+  console.log(questions);
+
+  if (props.currentFilter) {
+    filteredQuestions = questions.filter((question) => {
+      return question.topic === props.currentFilter;
+    });
+  }
+
   return (
     <div>
       <Header />
@@ -33,7 +44,7 @@ function ProfilePage(props) {
 
         <div className="feed">
           <FlipMove>
-            {questions.map((question) => (
+            {filteredQuestions.map((question) => (
               <Question
                 key={question.id}
                 avatar={Avatar}

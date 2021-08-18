@@ -1,15 +1,11 @@
-import React, { useContext, useEffect } from "react";
-// import "./App.css";
-import UserContext from "./UserContext";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import HomePage from "./HomePage";
 import LinksPage from "./LinksPage";
 import ProfilePage from "./ProfilePage";
-
-import { auth } from "./firebase";
-import { useStateValue } from "./UserContext";
+import SettingsPage from "./SettingsPage";
 
 
 function App() {
@@ -29,11 +25,15 @@ function App() {
           </Route>
 
           <Route path="/links">
-            <LinksPage  />
+            <LinksPage />
+          </Route>
+
+          <Route path="/settings">
+            <SettingsPage />
           </Route>
 
           <Route path="/profile">
-            <ProfilePage/>
+            <ProfilePage />
           </Route>
 
           <Route path="/">

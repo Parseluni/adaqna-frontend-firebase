@@ -46,7 +46,7 @@ function LoginForm() {
                     <input type="password" value={password} onChange={event => setPassword(event.target.value)}/>
 
                     <div>
-                        <Button variant="outlined" type="submit" className="login__button" fullWidth onClick={logIn}>Log in</Button>
+                        <Button variant="outlined" type="submit" className="submit__button" fullWidth onClick={logIn}>Log in</Button>
                     </div>
                 </form>
             </div>

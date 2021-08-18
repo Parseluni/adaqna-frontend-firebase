@@ -37,7 +37,7 @@
     width: 98%;
 }
 
-.login__button {
+.submit__button {
     display: flex;
     background-color: var(--ada-pink) !important;
     border: none !important;
@@ -47,7 +47,7 @@
     border-radius: 30px !important;
     width: 20px;
     height: 40px !important;
-    padding-top: 20px;
+    padding-top: 100px;
     margin-left: auto !important;
 }
 

@@ -14,7 +14,10 @@
 }
 
 .questionBox__input {
-    padding: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
     display: flex;
 }
 
@@ -39,8 +42,14 @@
     margin-left: auto !important;
 }
 
+.error_message {
+    color: var(--ada-pink);
+    margin-bottom: 5px;
+}
+
 .topic_dropdown {
-    margin-left: 10px;
+    margin-left: 15px;
+    margin-right: 10px;
 }
 
 .topic_text {

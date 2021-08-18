@@ -28,7 +28,7 @@ function Topics({handleTopicFilter}) {
             {/* Header */}
             <div className="topics">
                 <div className="topics__title">
-                    <h2>Topics</h2>
+                    <h2 style={{ color: 'var(--ada-pink)' }}>Topics</h2>
                 </div>
 
                 {/* Topics */}

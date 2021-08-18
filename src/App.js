@@ -6,6 +6,8 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import HomePage from "./HomePage";
 import LinksPage from "./LinksPage";
+import ProfilePage from "./ProfilePage";
+
 import { auth } from "./firebase";
 import { useStateValue } from "./UserContext";
 
@@ -27,7 +29,11 @@ function App() {
           </Route>
 
           <Route path="/links">
-            <LinksPage />
+            <LinksPage  />
+          </Route>
+
+          <Route path="/profile">
+            <ProfilePage/>
           </Route>
 
           <Route path="/">

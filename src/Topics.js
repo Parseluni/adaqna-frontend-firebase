@@ -39,7 +39,7 @@ function Topics({handleTopicFilter}) {
                 {/* Search */}
                 <div className="topics__input">
                     <SearchIcon className="topics__searchIcon" />
-                    <input placeholder="Search for keywords" type="text" />
+                    <input id="search_input" placeholder="Search for keywords" type="text" />
                 </div>
 
             </div>

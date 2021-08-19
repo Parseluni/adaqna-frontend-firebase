@@ -32,6 +32,10 @@
     color: gray;
 }
 
+#search_input {
+    max-width: 125px;
+}
+
 
 
 

@@ -14,9 +14,27 @@ function LinksPage() {
         </div>
 
         <div className="links_section">
+
+        <div>
+            <h2 className="ada_titles">
+              <span style={{ color: "#fc1378" }}>ADA</span> - <em>Related Blogs</em>
+            </h2>
+            <nav className="links_official">
+              <a href="https://medium.com/@sophia_h_le/applying-to-ada-developers-academy-part-1-why-and-why-not-c5b50e778a46" rel="noreferrer" target="_blank">
+                <img src="/Sophia.png" alt="Sophia Le blog on Medium" className="blog_icon" />
+              </a>
+              <a href="https://medium.com/@lizeth.veraro/applying-and-getting-into-ada-developers-academy-633663c97285" rel="noreferrer" target="_blank">
+              <img src="/Lizeth.png" alt="Lizeth Veraro blog on Medium" className="blog_icon" />
+              </a>
+              <a href="https://www.geekwire.com/2015/the-interview-the-pressure-builds-to-get-into-ada-developers-academy/" rel="noreferrer" target="_blank">
+                <img src="/Sally.png" alt="Sally Moore blog on Geekwire" className="blog_icon" />
+              </a>
+            </nav>
+          </div>
+
           <div>
             <h2 className="ada_titles">
-              <span style={{ color: "#fc1378" }}>ADA</span> Official Media
+              <span style={{ color: "#fc1378" }}>ADA</span> - <em>Official Media</em>
             </h2>
             
             <div className="links_official">
@@ -51,7 +69,7 @@ function LinksPage() {
 
           <div>
             <h2 className="ada_titles">
-              <span style={{ color: "#fc1378" }}>ADA</span> Unofficial Media
+              <span style={{ color: "#fc1378" }}>ADA</span> - <em>Unofficial Media</em>
             </h2>
 
             <div className="links_official">
@@ -68,23 +86,6 @@ function LinksPage() {
                 <img src="/facebook.png" alt="Facebook icon" className="main_icon" />
               </a>
             </div>
-          </div>
-
-          <div>
-            <h2 className="ada_titles">
-              <span style={{ color: "#fc1378" }}>ADA</span> Related Blogs
-            </h2>
-            <nav className="links_official">
-              <a href="https://medium.com/@sophia_h_le/applying-to-ada-developers-academy-part-1-why-and-why-not-c5b50e778a46" rel="noreferrer" target="_blank">
-                <img src="/Sophia.png" alt="Sophia Le blog on Medium" className="blog_icon" />
-              </a>
-              <a href="https://medium.com/@lizeth.veraro/applying-and-getting-into-ada-developers-academy-633663c97285" rel="noreferrer" target="_blank">
-              <img src="/Lizeth.png" alt="Lizeth Veraro blog on Medium" className="blog_icon" />
-              </a>
-              <a href="https://www.geekwire.com/2015/the-interview-the-pressure-builds-to-get-into-ada-developers-academy/" rel="noreferrer" target="_blank">
-                <img src="/Sally.png" alt="Sally Moore blog on Geekwire" className="blog_icon" />
-              </a>
-            </nav>
           </div>
 
         </div>

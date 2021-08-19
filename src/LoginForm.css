@@ -14,6 +14,7 @@
     /* margin-right: auto; */
     /* margin-left: auto; */
     max-height: 300px;
+    padding-bottom: 20px;
 }
 
 .login__container {
@@ -24,6 +25,7 @@
     border-radius: 5px;
     border: 1px solid lightgray;
     padding: 20px;
+    margin-top: 30px;
 }
 
 .login__container > form > h5 {
@@ -57,15 +59,10 @@
     border-radius: 30px !important;
     width: 20px;
     height: 40px !important;
-    padding-top: 100px;
     margin-left: auto !important;
 }
 
-/* #banner_image { */
-    /* width: 100%; */
-    /* background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/Free-polygon-backgrounds.jpg); */
-    /* background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/429eb428828761.55d467b770f02.jpg); */
-    /* height: 300; */
-    /* background-color: var(--ada-pink); */
-    /* background-position: center; */
-/* } */
+.submit_button {
+    padding-top: 10px;
+}
+

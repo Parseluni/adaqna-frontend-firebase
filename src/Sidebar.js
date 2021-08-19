@@ -18,8 +18,14 @@ function Sidebar(props) {
         text="Home"
         link={{ pathname: "/", state: { currentFilter: null }}}
       />
-      <SidebarOption Icon={SettingsIcon} text="Settings" link={{pathname: "/settings"}} />
       <SidebarOption Icon={LinkOutlinedIcon} text="Links" link={{pathname: "/links"}} />
+      {/* <SidebarOption Icon={SettingsIcon} text="Settings" link={{pathname: "/settings"}} /> */}
+      {user.auth ? (
+        <SidebarOption Icon={SettingsIcon} text="Settings" link={{pathname: "/settings"}} />
+      ) : (
+        ""
+      )}
+
       {user.auth ? (
         <SidebarOption
           Icon={PersonIcon}

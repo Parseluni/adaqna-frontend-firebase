@@ -6,28 +6,20 @@
   margin-right: auto;
   padding: 0 10px;
   position: sticky;
-  /* justify-content: space-evenly; */
 }
 
 .header__logo {
-  /* font-size: 20px; */
-  /* font-weight: 800; */
-  /* max-width: 20%; */
+
   position: sticky;
-  /* top: 0; */
   height: 90px;
   z-index: 100;
   padding: 15px 20px;
-  /* background-color: white; */
-  /* border: 1px solid var(--main-background); */
-  /* border-bottom: 10px solid var(--main-background); */
-  /* background-color: var(--main-background); */
   flex: 0.3;
 }
 
 .header__logo img {
   width: auto;
-  height: 120%;
+  height: 130%;
 }
 
 .header a {
@@ -52,13 +44,14 @@
   align-items: center;
 }
 
+.header__center {
+  flex: 0.4;
+}
+
 #username {
   /* margin-top: 40px; */
 }
 
-.header__center {
-  flex: 0.4;
-}
 .header__right {
   align-items: center;
   display: flex;
@@ -68,4 +61,12 @@
 
 .header__container {
   height: 210px;
+}
+
+.button__left {
+  margin-right: 5px;
+}
+
+.button__right {
+  margin-left: 5px;
 }

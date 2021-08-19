@@ -33,7 +33,6 @@ function ProfilePage() {
     }
   }, [location.state, currentFilter]);
 
-
   useEffect(() => {
     db.collection("questions")
       .where("username", "==", user.username)

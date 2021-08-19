@@ -66,7 +66,7 @@ function SignupForm() {
             onChange={(event) => setPassword(event.target.value)}
           />
 
-          <div>
+          <div className="submit_button">
             <Button
               variant="outlined"
               type="submit"

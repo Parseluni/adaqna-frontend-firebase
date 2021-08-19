@@ -44,18 +44,28 @@ function Header() {
           </div>
         ) : (
           <div className="header__right">
-            {/* <Button variant="outlined" className="header__buttons" fullWidth onClick={routeChange}>Log in button</Button> */}
-
-            <Link to="/login">
-              <Button variant="outlined" className="header__buttons" fullWidth>
-                Log in
-              </Button>
-            </Link>
-            <Link to="/signup">
-              <Button variant="outlined" className="header__buttons" fullWidth>
-                Sign up
-              </Button>
-            </Link>
+            <div className="button__left">
+              <Link to="/login">
+                <Button
+                  variant="outlined"
+                  className="header__buttons"
+                  fullWidth
+                >
+                  Log in
+                </Button>
+              </Link>
+            </div>
+            <div className="button__right">
+              <Link to="/signup">
+                <Button
+                  variant="outlined"
+                  className="header__buttons"
+                  fullWidth
+                >
+                  Sign up
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
       </div>

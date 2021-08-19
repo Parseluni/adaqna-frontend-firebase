@@ -143,8 +143,8 @@ const Question = forwardRef(
             <Avatar src={avatar} />
           </div>
           <div className="question__headerText">
-            <h3>{username}</h3>
-            <h5>{readableDate}</h5>
+            <h3 id="question__username">{username}</h3>
+            <h5 id="question__date">{readableDate}</h5>
           </div>
           <div className="question__headerTimestamp"></div>
         </div>
@@ -187,7 +187,6 @@ const Question = forwardRef(
                 <ArrowDownwardOutlinedIcon fontSize="small" /> */}
           {/* <MessageOutlinedIcon fontSize="small" />  */}
 
-          {/* <AnswerBox questionId=<firebase_question_id> */}
           {showTextBox && user.auth ? (
             <AnswerBox
               question_id={question_id}

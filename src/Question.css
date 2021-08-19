@@ -20,7 +20,7 @@
 .question__answersLink {
   text-decoration: none;
   display: inline-block;
-  margin-left: 8px;
+  margin-left: 12px;
   padding: 8px;
   color: #808080;
   font-weight: bold;
@@ -47,12 +47,20 @@
 }
 
 .question__text {
-  margin-left: 15px;
+  margin-left: 20px;
 }
 
 .question__footer {
   /* display: flex;  */
   text-align: right;
+}
+
+/* #question__username {
+  color: var(--ada-pink);
+} */
+
+#question__date {
+  color: gray;
 }
 
 /* .votes {

@@ -1,0 +1,41 @@
+.links_section {
+    text-decoration: none;
+    padding: 20px;
+    padding-left: 150px;
+}
+
+.MuiSvgIcon-root {
+    padding: 5px;
+    font-size: 5rem;
+}
+
+.ada_titles {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* font-weight: 20px; */
+}
+
+.app {
+    display: flex;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.icon {
+    text-decoration: none;
+    width: 50px;
+}
+
+.ada_icon {
+    width: 50px;
+}
+
+.discord_icon {
+    width: 60px;
+}
+
+.links_official {
+    display: flex;
+}

@@ -17,13 +17,13 @@ const Answer = forwardRef(
           </div>
           <div className="answer__headerText">
             <h3>{username}</h3>
-            <h5>{readableDate}</h5>
+            <h5 id="answer__date">{readableDate}</h5>
           </div>
           <div className="answer__headerTimestamp"></div>
         </div>
 
         <div className="answer__text">
-          <h4>{text}</h4>
+          <p>{text}</p>
         </div>
         <div className="answer__footer">
           <ArrowUpwardOutlinedIcon fontSize="small" onClick={increaseVotes} />

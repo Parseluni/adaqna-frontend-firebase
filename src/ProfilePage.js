@@ -7,12 +7,32 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Topics from "./Topics";
 import db from "./firebase";
+import { useLocation } from "react-router-dom";
+
 
 // Refreshing the page does not rerender it
 
-function ProfilePage(props) {
+function ProfilePage() {
+
+  const location = useLocation();
   const { user } = useContext(UserContext);
   const [questions, setQuestions] = useState([]);
+
+  const [currentFilter, setCurrentFilter] = useState(null);
+
+  const handleTopicFilter = (topic) => {
+    setCurrentFilter(topic);
+  };
+
+  // this will trigger a render 2x, instead of 1x; how can we improve this?
+  useEffect(() => {
+    if (location.state) {
+      // is it an antipattern to be calling functions that setState inside
+      // useEffect?
+      setCurrentFilter(location.state.currentFilter);
+    }
+  }, [location.state, currentFilter]);
+
 
   useEffect(() => {
     db.collection("questions")
@@ -30,9 +50,9 @@ function ProfilePage(props) {
   let filteredQuestions = questions;
   console.log(questions);
 
-  if (props.currentFilter) {
+  if (currentFilter) {
     filteredQuestions = questions.filter((question) => {
-      return question.topic === props.currentFilter;
+      return question.topic === currentFilter;
     });
   }
 
@@ -59,7 +79,7 @@ function ProfilePage(props) {
           </FlipMove>
         </div>
 
-        <Topics handleTopicFilter={props.handleTopicFilter} />
+        <Topics handleTopicFilter={handleTopicFilter} />
 
       </div>
     </div>

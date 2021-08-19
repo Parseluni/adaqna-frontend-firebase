@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./HomePage.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -19,7 +19,7 @@ function HomePage() {
   };
 
   // this will trigger a render 2x, instead of 1x; how can we improve this?
-  React.useEffect(() => {
+  useEffect(() => {
     if (location.state) {
       // is it an antipattern to be calling functions that setState inside
       // useEffect?
@@ -31,7 +31,7 @@ function HomePage() {
     <div>
       <Header />
       <div className="app">
-        <Sidebar handleTopicFilter={handleTopicFilter} currentFilter={currentFilter} />
+        <Sidebar />
 
         <div className="feed">
           {user.auth ? <QuestionBox /> : ""}

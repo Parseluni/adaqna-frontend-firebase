@@ -12,17 +12,19 @@ function SettingsPage() {
   const [location, setLocation] = useState("");
   const [tag, setTag] = useState("");
 
-  const handleTagSelection = (event) => {
-    setTag(event.target.value);
-  };
+  // const handleTagSelection = (event) => {
+  //   setTag(event.target.value);
+  // };
 
   const saveFields = (event) => {
-    db.collection("users").doc(user.username).set({
+    db.collection("users").doc(user.uid).set({
       username: username,
       tag: tag,
       location: location,
-    });
-    //   .then(history.push("/"));
+    })
+    // .then(() => {
+    //   history.push("/")
+    // });
   };
 
   return (
@@ -33,7 +35,7 @@ function SettingsPage() {
         </div>
       </Link>
 
-      <div id="banner_image"></div>
+      {/* <div id="banner_image"></div> */}
 
       <div className="login__container">
         <form>
@@ -47,7 +49,7 @@ function SettingsPage() {
 
           <h5>Set location</h5>
           <input
-            type="password"
+            type="text"
             value={user.password}
             placeholder={user.password}
             onChange={(event) => setLocation(event.target.value)}
@@ -55,26 +57,21 @@ function SettingsPage() {
 
           <h5>Select tag</h5>
           <select
-            className="topic_dropdown"
+            className="tag_dropdown"
             onChange={(event) => setTag(event.target.value)}
             value={tag}
           >
             <option value=""></option>
-            <option value="Essays">Essays</option>
-            <option value="Code Challenge">Code Challenge</option>
-            <option value="Technical Interview">Technical Interview</option>
-            <option value="Final Interview">Final Interview</option>
-            <option value="Application Timeline">Application Timeline</option>
-            <option value="Internships">Internships</option>
-            <option value="Career Prospects">Career Prospects</option>
-            <option value="General">General</option>
+            <option value="Alumni">Alumni</option>
+            <option value="Applicant">Applicant</option>
+            <option value="Intern">Intern</option>
+            <option value="Instructor">Instructor</option>
+            <option value="Interviewer">Interviewer</option>
+            <option value="Other">Other</option>
+            <option value="Staff">Staff</option>
+            <option value="Student">Student</option>
+            <option value="Volunteer">Volunteer</option>
           </select>
-          <input
-            type="text"
-            value={user.email}
-            placeholder={user.email}
-            onChange={(event) => setTag(event.target.value)}
-          />
 
           <div>
             <Button

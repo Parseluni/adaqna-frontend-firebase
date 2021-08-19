@@ -35,7 +35,7 @@ function LoginForm() {
                 </div>
             </Link>
 
-            <div id="banner_image"></div>
+            {/* <div id="banner_image"></div> */}
 
             <div className="login__container">
                 <form>

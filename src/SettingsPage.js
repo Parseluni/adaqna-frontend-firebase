@@ -8,7 +8,7 @@ import "./LoginForm.css";
 function SettingsPage() {
   const { user } = useContext(UserContext);
   const history = useHistory();
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(user.username);
   const [location, setLocation] = useState("");
   const [tag, setTag] = useState("");
 
@@ -17,14 +17,19 @@ function SettingsPage() {
   // };
 
   const saveFields = (event) => {
-    db.collection("users").doc(user.uid).set({
-      username: username,
-      tag: tag,
-      location: location,
-    })
-    // .then(() => {
-    //   history.push("/")
-    // });
+    console.log(user.uid)
+    try {
+      db.collection("users")
+        .doc(user.uid)
+        .update({
+          username: username,
+          tag: tag,
+          location: location,
+        })
+        history.push("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -38,20 +43,18 @@ function SettingsPage() {
       {/* <div id="banner_image"></div> */}
 
       <div className="login__container">
-        <form>
+        <form onSubmit={saveFields}>
           <h5>Edit username</h5>
           <input
             type="text"
-            // value={user.username}
-            placeholder={user.username}
+            value={username}
+            placeholder="username"
             onChange={(event) => setUsername(event.target.value)}
           />
 
           <h5>Set location</h5>
           <input
             type="text"
-            value={user.password}
-            placeholder={user.password}
             onChange={(event) => setLocation(event.target.value)}
           />
 
@@ -79,7 +82,6 @@ function SettingsPage() {
               type="submit"
               className="submit__button"
               fullWidth
-              onClick={saveFields()}
             >
               Save
             </Button>

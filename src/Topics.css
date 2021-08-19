@@ -1,11 +1,11 @@
 .topics {
     /* flex: 0.20; */
-    padding-left: 30px;
-    /* padding-right: 20px; */
+    padding-left: 50px;
+    /* padding-right: 100px; */
 }
 
 .topics__container{
-    flex: 0.2;
+    flex: 0.3;
 }
 
 .topics__title {
@@ -20,6 +20,7 @@
     padding: 5px;
     border-radius: 20px;
     margin-top: 20px;
+    max-width: 200px;
 }
 
 .topics__input > input {
@@ -30,6 +31,7 @@
 .topics__searchIcon {
     color: gray;
 }
+
 
 
 

@@ -8,7 +8,6 @@ import UserContext from "./UserContext";
 function LoginForm() {
 
     const { login } = useContext(UserContext);
-    // const [username, setUsername] = useState();
     
     const history = useHistory();
     const [email, setEmail] = useState(''); 

@@ -53,5 +53,4 @@ function Feed({ currentFilter }) {
 
 export default Feed;
 
-// make sure function returns true if current filter matches current topic
-// or return false
+

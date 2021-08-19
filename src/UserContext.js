@@ -1,19 +1,8 @@
-import React, { createContext, useContext, useState, useReducer } from "react";
+import React, { createContext, useState } from "react";
 import db from "./firebase";
 
-// function  UserContext to initiate context 
-// const UserContext = createContext({ username: '', auth: false });
+
 const UserContext = createContext();
-
-// // Wrap our app and provide the Data layer
-// export const UserProvider = ({ reducer, initialState, children }) => (
-//   <UserContext.Provider value={useReducer(reducer, initialState)}>
-//     {children}
-//   </UserContext.Provider>
-// );
-
-// // Pull information from the data layer
-// export const useStateValue = () => useContext(UserContext);
 
 const retrieveUserData = () => {
     // get item form local storage
@@ -42,10 +31,9 @@ export const UserProvider = ({ children }) => {
           const loggedInUserData = {
             username: userRef.data().username,
             auth: true,
+            uid: uid,
           }
-          setUser((user) => (
-            loggedInUserData
-          ))
+          setUser(loggedInUserData)
           localStorage.setItem("user", JSON.stringify(loggedInUserData))
         });
     };

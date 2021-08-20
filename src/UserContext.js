@@ -32,9 +32,12 @@ export const UserProvider = ({ children }) => {
             username: userRef.data().username,
             auth: true,
             uid: uid,
+            tag: userRef.data().tag,
+            location: userRef.data().location
           }
           setUser(loggedInUserData)
           localStorage.setItem("user", JSON.stringify(loggedInUserData))
+          console.log(user, "USER")
         });
     };
     

@@ -7,19 +7,20 @@ import MessageOutlinedIcon from "@material-ui/icons/MessageOutlined";
 import AnswerBox from "./AnswerBox.js";
 import GlobalAnswerButton, { AnswerBoxOpener } from "./GlobalAnswerButton";
 import UserContext from "./UserContext";
-import { SignalCellularNull } from "@material-ui/icons";
 import Answer from "./Answer";
 import db from "./firebase";
 import { Link } from "react-router-dom";
 
 const Question = forwardRef(
-  ({ avatar, username, text, timestamp, question_id, votes }, ref) => {
+  ({ avatar, username, text, timestamp, question_id, topic, votes }, ref) => {
     const readableDate = new Date(timestamp).toDateString();
 
     const { user } = useContext(UserContext);
     const [showTextBox, setShowTextBox] = useState(false);
     const [answers, setAnswers] = useState([]);
     const [showAnswers, setShowAnswers] = useState(false);
+
+    console.log(user.tag, "WE ARE HERE!!!")
 
     const showAnswersNumber = (answersNumber) => {
       if (answersNumber === 0) {
@@ -82,14 +83,6 @@ const Question = forwardRef(
       setShowTextBox(true);
     };
 
-    // if user is logged in, show them an "Answer" button that when they click
-    // opens (via onClick) the AnswerBox
-
-    // if user clicked on Answer, show box and hide button
-
-    // if the user is logged out, show them an "Answer" button that takes them
-    // to the /signup link
-
     const answerBoxWhenLoggedIn = () => {
       if (showTextBox) {
         return null;
@@ -143,8 +136,10 @@ const Question = forwardRef(
             <Avatar src={avatar} />
           </div>
           <div className="question__headerText">
-            <h3 id="question__username">{username}</h3>
-            <h5 id="question__date">{readableDate}</h5>
+            {/* <h3 id="question__username">{username} ⚪ {user.tag}</h3> */}
+            {/* <h5 id="question__date">{readableDate} in {user.location}</h5> */}
+            <h3 id="question__username">{username} </h3>
+            <h5 id="question__date">{readableDate} </h5>
           </div>
           <div className="question__headerTimestamp"></div>
         </div>
@@ -194,7 +189,16 @@ const Question = forwardRef(
             />
           ) : null}
 
-          {answerLink()}
+        <div className="answer_and_topic">
+          <div>
+            {answerLink()} 
+          </div>
+
+          <div className="question__topic">
+            {topic}
+          </div>
+        </div>
+          
         </div>
       </div>
     );

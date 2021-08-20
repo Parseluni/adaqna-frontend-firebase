@@ -9,7 +9,6 @@
 }
 
 .header__logo {
-
   position: sticky;
   height: 90px;
   z-index: 100;
@@ -20,6 +19,7 @@
 .header__logo img {
   width: auto;
   height: 130%;
+  position: relative;
 }
 
 .header a {
@@ -48,15 +48,11 @@
   flex: 0.4;
 }
 
-#username {
-  /* margin-top: 40px; */
-}
-
 .header__right {
   align-items: center;
   display: flex;
   flex: 0.3;
-  padding-left: 150px;
+  /* padding-left: 50px; */
 }
 
 .header__container {

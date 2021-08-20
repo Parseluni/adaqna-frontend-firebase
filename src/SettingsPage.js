@@ -6,7 +6,7 @@ import UserContext from "./UserContext";
 import "./LoginForm.css";
 
 function SettingsPage() {
-  const { user } = useContext(UserContext);
+  const { user, login } = useContext(UserContext);
   const history = useHistory();
   const [username, setUsername] = useState(user.username);
   const [location, setLocation] = useState("");
@@ -26,6 +26,7 @@ function SettingsPage() {
           tag: tag,
           location: location,
         })
+        .then(() => login(user.uid))
         history.push("/");
     } catch (err) {
       console.log(err);
@@ -65,7 +66,7 @@ function SettingsPage() {
             value={tag}
           >
             <option value=""></option>
-            <option value="Alumni">Alumni</option>
+            <option value="Alumni">Alum</option>
             <option value="Applicant">Applicant</option>
             <option value="Intern">Intern</option>
             <option value="Instructor">Instructor</option>

@@ -21,7 +21,7 @@ function SidebarOption({active, text, link, Icon}) {
     let location = useLocation();
 
     active = location.pathname === link.pathname;
-    console.log(location.pathname, link.pathname, "WE ARE HERE!!!");
+    console.log(location.pathname, link.pathname);
 
     return (
     <Link className={`sidebarOption ${active && 'sidebarOption--active'}`}

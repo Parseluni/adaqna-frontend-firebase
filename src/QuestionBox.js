@@ -14,7 +14,6 @@ function QuestionBox() {
   const [validTopic, setValidTopic] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  
   useEffect(() => {
     db.collection("questionText").onSnapshot((snapshot) =>
       setQuestionText(snapshot.docs.map((doc) => doc.data()))
@@ -28,7 +27,7 @@ function QuestionBox() {
       setErrorMessage("");
     } else {
       setValidTopic(false);
-      // Why does this log show validTopic is set to true??? 
+      // Why does this log show validTopic is set to true???
       console.log(`validTopic is set to ${validTopic}`);
     }
   };
@@ -42,7 +41,7 @@ function QuestionBox() {
 
   const handleQuestionWithoutTopic = (event) => {
     setErrorMessage("Please select a topic");
-  }
+  };
 
   const sendQuestion = (event) => {
     event.preventDefault();
@@ -56,6 +55,7 @@ function QuestionBox() {
         text: questionText,
         timestamp: Date.now(),
         topic: topicSelection,
+        uid: user.uid,
         // votes: 7,
       });
     } catch (err) {
@@ -87,35 +87,44 @@ function QuestionBox() {
               <p className="error_message">{errorMessage}</p>
             </div>
             <div>
-            Topic:
-            <select
-              className="topic_dropdown"
-              onChange={handleTopicSelection}
-              value={topicSelection}
-            >
-              <option value=""></option>
-              <option value="Essays">Essays</option>
-              <option value="Code Challenge">Code Challenge</option>
-              <option value="Technical Interview">Technical Interview</option>
-              <option value="Final Interview">Final Interview</option>
-              <option value="Application Timeline">Application Timeline</option>
-              <option value="Internships">Internships</option>
-              <option value="Career Prospects">Career Prospects</option>
-              <option value="General">General</option>
-            </select>
+              Topic:
+              <select
+                className="topic_dropdown"
+                onChange={handleTopicSelection}
+                value={topicSelection}
+              >
+                <option value=""></option>
+                <option value="Essays">Essays</option>
+                <option value="Code Challenge">Code Challenge</option>
+                <option value="Technical Interview">Technical Interview</option>
+                <option value="Final Interview">Final Interview</option>
+                <option value="Application Timeline">Application Timeline</option>
+                <option value="Internships">Internships</option>
+                <option value="Career Prospects">Career Prospects</option>
+                <option value="General">General</option>
+              </select>
             </div>
           </div>
         )}
 
-        {(validQuestion === false) 
-          ? (<Button className="questionBox__button">Ask</Button>)
-          : (validTopic === true)
-            ? (<Button onClick={sendQuestion} type="submit" className="questionBox__button">
-                Ask
-              </Button>) 
-            : (<Button onClick={handleQuestionWithoutTopic} className="questionBox__button">Ask</Button>)
-            }
-
+        {validQuestion === false ? (
+          <Button className="questionBox__button">Ask</Button>
+        ) : validTopic === true ? (
+          <Button
+            onClick={sendQuestion}
+            type="submit"
+            className="questionBox__button"
+          >
+            Ask
+          </Button>
+        ) : (
+          <Button
+            onClick={handleQuestionWithoutTopic}
+            className="questionBox__button"
+          >
+            Ask
+          </Button>
+        )}
       </form>
     </div>
   );

@@ -4,20 +4,18 @@ import db from "./firebase";
 import { Button } from "@material-ui/core";
 import UserContext from "./UserContext";
 import "./LoginForm.css";
+import Question from "./Question";
 
 function SettingsPage() {
   const { user, login } = useContext(UserContext);
+
   const history = useHistory();
   const [username, setUsername] = useState(user.username);
   const [location, setLocation] = useState("");
   const [tag, setTag] = useState("");
 
-  // const handleTagSelection = (event) => {
-  //   setTag(event.target.value);
-  // };
-
   const saveFields = (event) => {
-    console.log(user.uid)
+    console.log(user.uid);
     try {
       db.collection("users")
         .doc(user.uid)
@@ -26,11 +24,35 @@ function SettingsPage() {
           tag: tag,
           location: location,
         })
-        .then(() => login(user.uid))
-        history.push("/");
+        .then(() => login(user.uid));
+      history.push("/");
     } catch (err) {
       console.log(err);
     }
+    let updates = {};
+    db.collection("questions")
+      .where("uid", "==", user.uid)
+      .get()
+      .then((questions) => {
+        questions.forEach((question) => {
+          // db.collection("questions")
+          //   .get()
+          //   .then(function (querySnapshot) {
+          //     querySnapshot.forEach(function (doc) {
+          //       doc.ref.update({
+          //         username: username,
+          //       });
+          //     });
+          //   });
+
+          question.ref.update({
+            username: username,
+          });
+          console.log(question.data());
+          // updates["/questions/" + question.id] = { username: username };
+        });
+      });
+    // db.collection("questions").update(updates);
   };
 
   return (

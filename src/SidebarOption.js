@@ -1,21 +1,7 @@
 import React from "react";
 import "./SidebarOption.css";
 import { Link, useLocation } from "react-router-dom";
-import { ControlCameraOutlined } from "@material-ui/icons";
 
-// Pass component as a prop (the icon itself)
-
-// export function AnswerBoxOpener({text, onClick}) {
-//     return (
-//     <div onClick={onClick} className="sidebarOption">
-//         <h2>{text}</h2>
-//     </div>
-//     )
-// }
-
-// function refreshPage(){ 
-//     window.location.reload(); 
-// }
 
 function SidebarOption({active, text, link, Icon}) {
     let location = useLocation();

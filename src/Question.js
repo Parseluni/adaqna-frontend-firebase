@@ -136,10 +136,10 @@ const Question = forwardRef(
             <Avatar src={avatar} />
           </div>
           <div className="question__headerText">
-            {/* <h3 id="question__username">{username} ⚪ {user.tag}</h3> */}
-            {/* <h5 id="question__date">{readableDate} in {user.location}</h5> */}
-            <h3 id="question__username">{username} </h3>
-            <h5 id="question__date">{readableDate} </h5>
+            <h3 id="question__username">{username} ⚪ {user.tag}</h3>
+            <h5 id="question__date">{readableDate} in {user.location}</h5>
+            {/* <h3 id="question__username">{username} </h3> */}
+            {/* <h5 id="question__date">{readableDate} </h5> */}
           </div>
           <div className="question__headerTimestamp"></div>
         </div>
@@ -148,7 +148,6 @@ const Question = forwardRef(
           <h3>{text}</h3>
         </div>
 
-        {/* <Link onClick={() => setShowAnswers(true)} className="question__answersLink">{answersNumberLength} Answers</Link> */}
         <Link
           onClick={() => setShowAnswers(true)}
           className="question__answersLink"

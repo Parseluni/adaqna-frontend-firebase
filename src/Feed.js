@@ -12,7 +12,7 @@ function Feed({ currentFilter }) {
     db.collection("questions").orderBy("timestamp", "desc").onSnapshot((snapshot) =>
       setQuestions(
         snapshot.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() };
+          return { id: doc.id, ...doc.data([]) };
         })
       )
     );

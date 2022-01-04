@@ -8,6 +8,7 @@ import UserContext from "./UserContext";
 import QuestionBox from "./QuestionBox";
 import { useLocation } from "react-router-dom";
 
+
 function HomePage() {
   const location = useLocation();
   const { user } = useContext(UserContext);
@@ -21,8 +22,7 @@ function HomePage() {
   // this will trigger a render 2x, instead of 1x; how can we improve this?
   useEffect(() => {
     if (location.state) {
-      // is it an antipattern to be calling functions that setState inside
-      // useEffect?
+      // is it an antipattern to be calling functions that setState inside useEffect?
       setCurrentFilter(location.state.currentFilter);
     }
   }, [location.state, currentFilter]);

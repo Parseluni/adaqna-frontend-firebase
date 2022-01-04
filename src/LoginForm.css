@@ -1,31 +1,25 @@
 .login {
+    align-items: center;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
 }
 
 #login__logo {
-    /* margin-top: 20px; */
-    /* margin-bottom: 20px; */
-    /* object-fit: contain; */
-    /* width: 100px; */
-    /* margin-right: auto; */
-    /* margin-left: auto; */
     max-height: 300px;
     padding-bottom: 20px;
 }
 
 .login__container {
-    width: 300px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
     border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
     padding: 20px;
     margin-top: 30px;
+    width: 300px;
 }
 
 .login__container > form > h5 {
@@ -33,36 +27,35 @@
 }
 
 .login__container > form > input {
+    background-color: white;
     height: 30px;
     margin-bottom: 10px;
-    background-color: white;
     width: 98%;
 }
 
 .tag_dropdown {
-    height: 38px;
-    margin-bottom: 20px;
     background-color: white;
     border: 2px solid gray;
-    border-top: 2px solid black;
     border-left: 2px solid black;
+    border-top: 2px solid black;
+    height: 38px;
+    margin-bottom: 20px;
     width: 100.7%;
 }
 
 .submit__button {
-    display: flex;
     background-color: var(--ada-pink) !important;
     border: none !important;
-    color: white !important;
-    font-weight: 900 !important;
-    text-transform: inherit !important;
     border-radius: 30px !important;
-    width: 20px;
+    color: white !important;
+    display: flex;
+    font-weight: 900 !important;
     height: 40px !important;
     margin-left: auto !important;
+    text-transform: inherit !important;
+    width: 20px;
 }
 
 .submit_button {
     padding-top: 10px;
 }
-

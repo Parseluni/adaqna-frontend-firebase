@@ -5,6 +5,7 @@ import { auth } from "./firebase";
 import { Button } from "@material-ui/core";
 import UserContext from "./UserContext";
 
+
 function LoginForm() {
 
     const { login } = useContext(UserContext);
@@ -33,8 +34,6 @@ function LoginForm() {
                     <img height="300" src="/logo.png" alt="Logo" />
                 </div>
             </Link>
-
-            {/* <div id="banner_image"></div> */}
 
             <div className="login__container">
                 <form>

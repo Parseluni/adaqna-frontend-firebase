@@ -11,7 +11,6 @@ import { useLocation } from "react-router-dom";
 
 
 // Refreshing the page does not rerender it
-
 function ProfilePage() {
 
   const location = useLocation();

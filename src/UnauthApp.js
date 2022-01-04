@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import UserContext from './UserContext';
+import React from 'react';
 import Sidebar from "./Sidebar";
 import Feed from "./Feed";
 import Topic from "./Topics";
@@ -10,8 +9,7 @@ import { Link } from "react-router-dom";
 
 
 function UnauthApp() {
-    // const { login } = useContext(UserContext);
-    // const [username, setUsername] = useState();
+
 
     return (
         <div>
@@ -20,16 +18,6 @@ function UnauthApp() {
                 <div className="header__logo">
                     <img width="200" src="/logo.png" alt="Logo" />
                 </div>
-
-                {/* HOW DO I PASS LOGIN FORM IN HERE ??? */}
-                {/* <label>Name:</label> */}
-                {/* <input type="text" onChange={(event) => {setUsername(event.target.value);}}/> */}
-                {/* <button onClick={() => login(username)}>Log in</button> */}
-
-                {/* control whether this is visible: */}
-                {/* <Login /> */}
-
-                {/* Toggle form visibility with button */}
                 
                 <Link to ="/login">
                     <Button variant="outlined" className="header__buttons" fullWidth >Log in</Button>

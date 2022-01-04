@@ -5,6 +5,7 @@ import db, { auth } from "./firebase";
 import { Button } from "@material-ui/core";
 import UserContext from "./UserContext";
 
+
 function SignupForm() {
   const { login } = useContext(UserContext);
 
@@ -21,7 +22,6 @@ function SignupForm() {
       .then((auth) => {
         if (auth) {
           console.log(auth.user);
-          // auth.user.email
           // find the db collection of users, then the doc to reference the email you already have, then set the data you want to set (username)
           db.collection("users")
             .doc(auth.user.uid)

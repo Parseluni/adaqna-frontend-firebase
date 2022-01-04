@@ -1,27 +1,24 @@
 .globalAnswerButton {
-    display: flex;
-    /* align-items: center; */
-    cursor: pointer;
-    text-decoration: none;
     color: var(--ada-dark);
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
 }
 
 .globalAnswerButton:hover {
-    /* background-color: var(--main-hover); */
     border-radius: 30px;
     color: var(--ada-pink);
     transition: color 100ms ease-out;
 }
 
 .globalAnswerButton > .MuiSvgIcon-root {
-    padding-left: 20px;
-    padding-top: 10px;
     padding-bottom: 15px;
+    padding-left: 20px;
     padding-right: 5px;
+    padding-top: 10px;
 }
 
 .globalAnswerButton > h2 {
-    /* font-weight: 800; */
     font-size: 17px;
     margin-top: 11px;
 }
@@ -29,4 +26,3 @@
 .globalAnswerButton--active {
     color: var(--ada-pink);
 }
-

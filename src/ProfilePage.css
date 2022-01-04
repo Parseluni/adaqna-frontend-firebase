@@ -9,18 +9,16 @@
   }
   
   #bannerimage {
-    width: 100%;
     background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/Free-polygon-backgrounds.jpg);
-    /* background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/429eb428828761.55d467b770f02.jpg); */
-    height: 90px;
     background-color: var(--ada-pink);
     background-position: center;
+    height: 90px;
+    width: 100%;
   }
   
   #username {
     font-size: 25px;
     font-weight: 800;
     padding: 25px;
-    /* margin-left: auto; */
   }
   

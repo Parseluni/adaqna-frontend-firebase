@@ -16,7 +16,6 @@ function App() {
         <Switch>
 
           <Route path="/login">
-            {/* {user.auth ? <AuthApp /> : <Login />} */}
             <LoginForm />
           </Route>
 

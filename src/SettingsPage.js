@@ -4,7 +4,7 @@ import db from "./firebase";
 import { Button } from "@material-ui/core";
 import UserContext from "./UserContext";
 import "./LoginForm.css";
-import Question from "./Question";
+
 
 function SettingsPage() {
   const { user, login } = useContext(UserContext);
@@ -25,34 +25,45 @@ function SettingsPage() {
           location: location,
         })
         .then(() => login(user.uid));
+      // db.collection("questions")
+      //   .where("uid", "==", user.uid)
+      //   .get()
+      //   .then((questions) => {
+      //     questions.forEach((question) => {
+      //       question.ref.update({
+      //         username: username,
+      //       });
+      //       console.log(question.data());
+      //     });
+      //   });
+      // db.collection("answers")
+      //   .where("uid", "==", user.uid)
+      //   .get()
+      //   .then((answers) => {
+      //     answers.forEach((answer) => {
+      //       answer.ref.update({
+      //         username: username,
+      //       });
+      //       console.log(answer.data());
+      //     });
+      //   });
+      // db.collection("questions")
+      // .doc()
+      // .collection("answers")
+      // .where("uid", "==", user.uid)
+      // .get()
+      // .then((answers) => {
+      //   answers.forEach((answer) => {
+      //     answer.ref.update({
+      //       username: username,
+      //     });
+      //     console.log(answer.data());
+      //   });
+      // });
       history.push("/");
     } catch (err) {
       console.log(err);
     }
-    let updates = {};
-    db.collection("questions")
-      .where("uid", "==", user.uid)
-      .get()
-      .then((questions) => {
-        questions.forEach((question) => {
-          // db.collection("questions")
-          //   .get()
-          //   .then(function (querySnapshot) {
-          //     querySnapshot.forEach(function (doc) {
-          //       doc.ref.update({
-          //         username: username,
-          //       });
-          //     });
-          //   });
-
-          question.ref.update({
-            username: username,
-          });
-          console.log(question.data());
-          // updates["/questions/" + question.id] = { username: username };
-        });
-      });
-    // db.collection("questions").update(updates);
   };
 
   return (
@@ -62,8 +73,6 @@ function SettingsPage() {
           <img height="300" src="/logo.png" alt="Logo" />
         </div>
       </Link>
-
-      {/* <div id="banner_image"></div> */}
 
       <div className="login__container">
         <form onSubmit={saveFields}>

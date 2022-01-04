@@ -1,22 +1,11 @@
 body {
   --ada-dark: #0f355e;
-  /* --ada-dark: #1D0216; */
-  --ada-teal: #0ba3c2;
-  /* --ada-pink: #e61760; */
-  /* --ada-pink: #fa1d7d; */
   --ada-pink: #fc1378;
-  /* --ada-pink: #b72f91; */
-  /* --ada-pink: #b53290; */
-  /* --ada-pink: #ca449f; */
-  /* --ada-pink: #b73799; */
-  /* --ada-pink: #e344a3; */
-  /* --ada-pink: #9f2f83; */
-  /* --ada-pink: #ff1b43; */
-  /* --ada-pink: #ff012e; */
+  --ada-teal: #0ba3c2;
   --main-background: #f0f0f0;
   --main-hover: #d4d4d4;
-  color: var(--ada-dark);
   background-color: var(--main-background);
+  color: var(--ada-dark);
 }
 
 .app {
@@ -29,17 +18,15 @@ body {
 }
 
 #bannerimage {
-  width: 100%;
-  background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/Free-polygon-backgrounds.jpg);
-  /* background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/429eb428828761.55d467b770f02.jpg); */
-  height: 90px;
   background-color: var(--ada-pink);
+  background-image: url(https://images.freecreatives.com/wp-content/uploads/2015/04/Free-polygon-backgrounds.jpg);
   background-position: center;
+  height: 90px;
+  width: 100%;
 }
 
 #username {
   font-size: 25px;
   font-weight: 800;
   padding: 25px;
-  /* margin-left: auto; */
 }

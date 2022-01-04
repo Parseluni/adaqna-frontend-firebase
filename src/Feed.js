@@ -29,10 +29,7 @@ function Feed({ currentFilter }) {
   // clear filter when done
 
   return (
-    // <div className="feed">
     <div>
-      {/* Questions feed */}
-      {/* https://reactjs.org/docs/lists-and-keys.html#keys */}
       <FlipMove>
         {filteredQuestions.map((question) => (
           <Question
@@ -52,5 +49,3 @@ function Feed({ currentFilter }) {
 }
 
 export default Feed;
-
-

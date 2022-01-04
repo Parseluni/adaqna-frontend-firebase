@@ -3,7 +3,7 @@ import "./Answer.css";
 import { Avatar } from "@material-ui/core";
 import ArrowUpwardOutlinedIcon from "@material-ui/icons/ArrowUpwardOutlined";
 import ArrowDownwardOutlinedIcon from "@material-ui/icons/ArrowDownwardOutlined";
-import MessageOutlinedIcon from "@material-ui/icons/MessageOutlined";
+
 
 const Answer = forwardRef(
   ({ avatar, username, text, timestamp, votes, increaseVotes, decreaseVotes }, ref) => {
@@ -29,7 +29,6 @@ const Answer = forwardRef(
           <ArrowUpwardOutlinedIcon fontSize="small" onClick={increaseVotes} />
           <section className="votes">{votes}</section>
           <ArrowDownwardOutlinedIcon fontSize="small" onClick={decreaseVotes} />
-          {/* <MessageOutlinedIcon fontSize="small" /> */}
         </div>
       </div>
     );

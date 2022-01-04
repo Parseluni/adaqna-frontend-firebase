@@ -1,6 +1,5 @@
 import firebase from "firebase";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -19,5 +18,4 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 export const auth = firebase.auth();
 
-// export { db, auth };
 export default db;

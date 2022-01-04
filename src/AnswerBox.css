@@ -1,11 +1,8 @@
 .answerBox {
-    padding: 10px;
-    margin-top: 10px solid lightgray;
-    border-top: 1px;
-    /* border-style: solid; */
-    /* border-width: 1px; */
-    /* border-color: lightgray;         */
     background-color: white;
+    border-top: 1px;
+    margin-top: 10px solid lightgray;
+    padding: 10px;
     position: sticky;   
 }
 
@@ -15,29 +12,28 @@
 }
 
 .answerBox__input {
-    padding: 20px;
     display: flex;
     border: none;
+    padding: 20px;
 }
 
 .answerBox__input > input {
-    /* flex: 1; */
-    margin-left: 20px;
-    font-size: 20px;
     border: none;
-    width: 100%;
     flex: 1 1;
+    font-size: 20px;
+    margin-left: 20px;
+    width: 100%;
 }
 
 .answerBox__button {
     background-color: var(--ada-pink) !important;
     border: none !important;
+    border-radius: 30px !important;
+    border-top: 1px solid var(--main-background);
     color: white !important;
     font-weight: 900 !important;
-    text-transform: inherit !important;
-    border-radius: 30px !important;
-    width: 70px;
     height: 40px !important;
     margin-left: auto !important;
-    border-top: 1px solid var(--main-background);
+    text-transform: inherit !important;
+    width: 70px;
 }

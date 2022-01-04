@@ -1,6 +1,5 @@
 .header {
   display: flex;
-  /* height: 100vh; */
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
@@ -9,11 +8,11 @@
 }
 
 .header__logo {
-  position: sticky;
-  height: 90px;
-  z-index: 100;
-  padding: 15px 20px;
   flex: 0.3;
+  height: 90px;
+  padding: 15px 20px;
+  position: sticky;
+  z-index: 100;
 }
 
 .header__logo img {
@@ -29,19 +28,17 @@
 .header__buttons {
   background-color: var(--ada-pink) !important;
   border: none !important;
+  border-radius: 30px !important;
   color: white !important;
   font-weight: 900 !important;
-  text-transform: inherit !important;
-  border-radius: 30px !important;
   height: 40px;
-  /* margin-top: 60px !important; */
-  /* margin-left: auto !important; */
+  text-transform: inherit !important;
   width: 90px !important;
 }
 
 .header__loggedIn {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .header__center {
@@ -52,7 +49,6 @@
   align-items: center;
   display: flex;
   flex: 0.3;
-  /* padding-left: 50px; */
 }
 
 .header__container {

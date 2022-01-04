@@ -1,8 +1,6 @@
 import React, { forwardRef, useState, useContext, useEffect } from "react";
 import "./Question.css";
 import { Avatar } from "@material-ui/core";
-import ArrowUpwardOutlinedIcon from "@material-ui/icons/ArrowUpwardOutlined";
-import ArrowDownwardOutlinedIcon from "@material-ui/icons/ArrowDownwardOutlined";
 import MessageOutlinedIcon from "@material-ui/icons/MessageOutlined";
 import AnswerBox from "./AnswerBox.js";
 import GlobalAnswerButton, { AnswerBoxOpener } from "./GlobalAnswerButton";
@@ -10,6 +8,7 @@ import UserContext from "./UserContext";
 import Answer from "./Answer";
 import db from "./firebase";
 import { Link } from "react-router-dom";
+
 
 const Question = forwardRef(
   ({ avatar, username, text, timestamp, question_id, topic, votes }, ref) => {
@@ -20,7 +19,7 @@ const Question = forwardRef(
     const [answers, setAnswers] = useState([]);
     const [showAnswers, setShowAnswers] = useState(false);
 
-    console.log(user.tag, "WE ARE HERE!!!")
+    console.log(user.tag, "WE ARE HERE!!!");
 
     const showAnswersNumber = (answersNumber) => {
       if (answersNumber === 0) {
@@ -40,7 +39,7 @@ const Question = forwardRef(
           .doc(answer_id)
           .get()
           .then((answer) => {
-            const data = answer.data()
+            const data = answer.data();
             const newVotes = data.votes + 1;
             db.collection("questions")
               .doc(question_id)
@@ -63,7 +62,7 @@ const Question = forwardRef(
           .doc(answer_id)
           .get()
           .then((answer) => {
-            const data = answer.data()
+            const data = answer.data();
             const newVotes = data.votes - 1;
             db.collection("questions")
               .doc(question_id)
@@ -123,7 +122,7 @@ const Question = forwardRef(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // limiter of useEffect??? only do this when you see a change in variable
+    // limiter of useEffect? only do this when you see a change in variable
 
     const answerLink = () => {
       return user.auth ? answerBoxWhenLoggedIn() : answerBoxWhenLoggedOut();
@@ -136,10 +135,12 @@ const Question = forwardRef(
             <Avatar src={avatar} />
           </div>
           <div className="question__headerText">
-            <h3 id="question__username">{username} ⚪ {user.tag}</h3>
-            <h5 id="question__date">{readableDate} in {user.location}</h5>
-            {/* <h3 id="question__username">{username} </h3> */}
-            {/* <h5 id="question__date">{readableDate} </h5> */}
+            <h3 id="question__username">
+              {username} ⚪ {user.tag}
+            </h3>
+            <h5 id="question__date">
+              {readableDate} in {user.location}
+            </h5>
           </div>
           <div className="question__headerTimestamp"></div>
         </div>
@@ -166,21 +167,14 @@ const Question = forwardRef(
                 timestamp={answer.timestamp}
                 votes={answer.votes}
                 answer_id={answer.id}
-                increaseVotes = {() => increaseVotes(answer.id)}
-                decreaseVotes = {() => decreaseVotes(answer.id)}
+                increaseVotes={() => increaseVotes(answer.id)}
+                decreaseVotes={() => decreaseVotes(answer.id)}
               />
             ))}
           </div>
         )}
 
         <div className="question__footer">
-          {/* <ArrowUpwardOutlinedIcon fontSize="small" /> 
-                <section className="votes">
-                    {votes}
-                </section>
-                <ArrowDownwardOutlinedIcon fontSize="small" /> */}
-          {/* <MessageOutlinedIcon fontSize="small" />  */}
-
           {showTextBox && user.auth ? (
             <AnswerBox
               question_id={question_id}
@@ -188,16 +182,11 @@ const Question = forwardRef(
             />
           ) : null}
 
-        <div className="answer_and_topic">
-          <div>
-            {answerLink()} 
-          </div>
+          <div className="answer_and_topic">
+            <div>{answerLink()}</div>
 
-          <div className="question__topic">
-            {topic}
+            <div className="question__topic">{topic}</div>
           </div>
-        </div>
-          
         </div>
       </div>
     );

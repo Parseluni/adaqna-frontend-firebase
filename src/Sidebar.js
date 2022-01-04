@@ -7,6 +7,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import PersonIcon from "@material-ui/icons/Person";
 import UserContext from "./UserContext";
 
+
 function Sidebar(props) {
   const { user } = useContext(UserContext);
 
@@ -19,7 +20,6 @@ function Sidebar(props) {
         link={{ pathname: "/", state: { currentFilter: null }}}
       />
       <SidebarOption Icon={LinkOutlinedIcon} text="Links" link={{pathname: "/links"}} />
-      {/* <SidebarOption Icon={SettingsIcon} text="Settings" link={{pathname: "/settings"}} /> */}
       {user.auth ? (
         <SidebarOption Icon={SettingsIcon} text="Settings" link={{pathname: "/settings"}} />
       ) : (

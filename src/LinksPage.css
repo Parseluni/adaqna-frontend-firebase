@@ -1,18 +1,16 @@
 .links_section {
-    text-decoration: none;
-    /* padding: 20px; */
     padding-left: 150px;
+    text-decoration: none;
 }
 
 .MuiSvgIcon-root {
-    padding: 5px;
     font-size: 5rem;
+    padding: 5px;
 }
 
 .ada_titles {
     padding-top: 45px;
     padding-bottom: 20px;
-    /* font-weight: 20px; */
 }
 
 .app {
@@ -29,23 +27,20 @@
 }
 
 .main_icon {
-    width: 50px;
     padding: 10px;
-
+    width: 50px;
 }
 
 .discord_icon {
-    width: 60px;
     padding: 5px;
-
+    width: 60px;
 }
 
 .blog_icon {
-    width: 200px;
     padding-left: 0px;
     padding-right: 60px;
     padding-top: 10px;
-    /* padding-bottom: 30px; */
+    width: 200px;
 }
 
 .links_official {

@@ -1,27 +1,12 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import { Button } from "@material-ui/core";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
-import { useStateValue } from "./UserContext";
-import { auth } from "./firebase";
+
 
 function Header() {
   const { user, logout } = useContext(UserContext);
-
-  // const [{ user }, dispatch] = useStateValue;
-
-  // const handleAuth = () => {
-  //     if (user) {
-  //         auth.signOut();
-  //     }
-  // }
-
-  // const history = useHistory();
-  // const routeChange = () =>{
-  //   let path = "/login";
-  //   history.push(path);
-  // }
 
   return (
     <div className="header__container">
@@ -76,4 +61,3 @@ function Header() {
 }
 
 export default Header;
-

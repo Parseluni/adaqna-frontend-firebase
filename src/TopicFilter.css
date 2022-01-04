@@ -1,10 +1,10 @@
 .topicFilter {
-  display: flex;
   align-items: center;
-  cursor: pointer;
-  text-decoration: none;
-  margin-bottom: 5px;
   color: var(--ada-dark);
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 5px;
+  text-decoration: none;
 }
 
 .topicFilter:hover {
@@ -26,17 +26,3 @@
 .topicFilter--active {
   color: var(--ada-pink);
 }
-
-/* .topics__choices {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-} */
-
-/* .topics__choices:hover {
-    background-color: var(--main-hover);
-    border-radius: 30px;
-    color: var(--ada-pink);
-    transition: color 100ms ease-out;
-} */

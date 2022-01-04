@@ -1,9 +1,9 @@
 .sidebarOption {
-    display: flex;
     align-items: center;
-    cursor: pointer;
-    text-decoration: none;
     color: var(--ada-dark);
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
 }
 
 .sidebarOption:hover {
@@ -20,7 +20,6 @@
 .sidebarOption > h2 {
     font-weight: 800;
     font-size: 20px;
-    /* margin-right: 20px; */
 }
 
 .sidebarOption--active {
